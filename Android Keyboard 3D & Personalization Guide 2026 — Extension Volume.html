@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android Keyboard 3D &amp; Personalization Guide 2026 — Extension Volume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ANDROID KEYBOARD 3D & PERSONALIZATION GUIDE 2026 — EXTENSION
+   Companion volume to the Complete Edition Design Guide
+   Aesthetic: Warm technical editorial — precision meets clarity
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Paper & Ink System ── */
+  --paper:    #FDFAF6;
+  --paper-2:  #F6F1EA;
+  --paper-3:  #EDE7DC;
+  --paper-4:  #E3DDD4;
+
+  --ink-900:  #1B1815;
+  --ink-800:  #2D2A26;
+  --ink-700:  #46413C;
+  --ink-600:  #5A534C;
+  --ink-500:  #6E665E;
+  --ink-400:  #8D857C;
+  --ink-300:  #ACA49B;
+  --ink-200:  #CCC5BC;
+  --ink-100:  #E4DDD4;
+  --ink-50:   #F5F0EA;
+
+  /* ── Accent: Burnt Sienna ── */
+  --amber:    #B25A1A;
+  --amber-lt: #CD6E2A;
+  --amber-bg: #FDF2E6;
+  --amber-bd: #ECC08A;
+
+  /* ── Level Colors ── */
+  --beginner:       #2A7A48;
+  --beginner-bg:    #E9F6EE;
+  --beginner-bd:    #9ED4B4;
+
+  --intermediate:   #B25A1A;
+  --inter-bg:       #FDF2E6;
+  --inter-bd:       #ECC08A;
+
+  --expert:         #6B2D8B;
+  --expert-bg:      #F3EDF8;
+  --expert-bd:      #C4A0DB;
+
+  /* ── API Level Band Colors ── */
+  --api-30-color: #5C3F8C;
+  --api-31-color: #3D52A8;
+  --api-32-color: #2060A0;
+  --api-33-color: #117799;
+  --api-34-color: #0E896A;
+  --api-35-color: #1F7A2E;
+  --api-36-color: #B25A1A;
+
+  /* ── Semantic ── */
+  --success:  #2A7A48;
+  --warning:  #B25A1A;
+  --error:    #9B2020;
+  --info:     #1E5EA8;
+  --note-bg:  #EDF3FB;
+  --note-bd:  #A3C0E6;
+
+  /* ── Code ── */
+  --code-bg:    #F0EBE2;
+  --code-kw:    #6B2D8B;
+  --code-fn:    #2060A0;
+  --code-str:   #2A7A48;
+  --code-cm:    #8D857C;
+  --code-num:   #B25A1A;
+  --code-ty:    #117799;
+  --code-an:    #0E896A;
+
+  /* ── Layout ── */
+  --sidebar-w:  266px;
+  --content-max: 800px;
+  --gap: 40px;
+
+  /* ── Typography ── */
+  --f-display: 'Lora', Georgia, serif;
+  --f-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(27,24,21,0.07), 0 1px 2px rgba(27,24,21,0.04);
+  --shadow-md: 0 4px 12px rgba(27,24,21,0.08), 0 1px 3px rgba(27,24,21,0.05);
+  --shadow-lg: 0 10px 24px rgba(27,24,21,0.1), 0 2px 8px rgba(27,24,21,0.06);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-800);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ═══════════════════ LAYOUT ═══════════════════ */
+.layout { display: flex; min-height: 100vh; }
+
+/* ═══════════════════ SIDEBAR ═══════════════════ */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--ink-900);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 28px 0 48px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-700) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ink-700); border-radius: 2px; }
+
+.sidebar-brand {
+  padding: 0 22px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 18px;
+}
+.sidebar-brand .logo-mark {
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-lt);
+  margin-bottom: 7px;
+  display: block;
+}
+.sidebar-brand h2 {
+  font-family: var(--f-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-50);
+  line-height: 1.3;
+}
+.sidebar-brand .edition {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  color: var(--ink-500);
+  margin-top: 5px;
+  letter-spacing: 0.08em;
+}
+
+.nav-group { margin-bottom: 2px; }
+.nav-group-label {
+  font-family: var(--f-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-600);
+  padding: 10px 22px 4px;
+  display: block;
+}
+.nav-group a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4.5px 22px 4.5px 18px;
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-400);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.14s, border-color 0.14s, background 0.14s;
+  line-height: 1.4;
+}
+.nav-group a:hover {
+  color: var(--ink-50);
+  border-left-color: var(--amber-lt);
+  background: rgba(255,255,255,0.04);
+}
+.nav-group a .n {
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  color: var(--ink-600);
+  min-width: 22px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════ MAIN CONTENT ═══════════════════ */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--gap) 100px calc(var(--gap) + 20px);
+}
+.content-inner { max-width: var(--content-max); }
+
+/* ═══════════════════ COVER ═══════════════════ */
+.cover {
+  padding: 72px 0 60px;
+  border-bottom: 1px solid var(--ink-100);
+  margin-bottom: 56px;
+  max-width: var(--content-max);
+}
+.cover .eyebrow {
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cover .eyebrow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 52px;
+  background: var(--amber-bd);
+}
+.cover h1 {
+  font-family: var(--f-display);
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 700;
+  color: var(--ink-900);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.cover h1 em { font-style: italic; color: var(--amber); }
+.cover .subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink-500);
+  line-height: 1.65;
+  max-width: 580px;
+  margin-bottom: 32px;
+}
+.cover-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pill-dark  { background: var(--ink-900); color: var(--ink-50); }
+.pill-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
+.pill-muted { background: var(--paper-3); color: var(--ink-600); border: 1px solid var(--ink-100); }
+.pill-green { background: var(--beginner-bg); color: var(--beginner); border: 1px solid var(--beginner-bd); }
+.pill-expert { background: var(--expert-bg); color: var(--expert); border: 1px solid var(--expert-bd); }
+
+/* ═══════════════════ BADGES ═══════════════════ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.b-beginner      { background: var(--beginner-bg); color: var(--beginner); border: 1px solid var(--beginner-bd); }
+.b-intermediate  { background: var(--inter-bg); color: var(--intermediate); border: 1px solid var(--inter-bd); }
+.b-expert        { background: var(--expert-bg); color: var(--expert); border: 1px solid var(--expert-bd); }
+
+/* ── API Level Chips ── */
+.api {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: #fff;
+  white-space: nowrap;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+.api-30 { background: var(--api-30-color); }
+.api-31 { background: var(--api-31-color); }
+.api-32 { background: var(--api-32-color); }
+.api-33 { background: var(--api-33-color); }
+.api-34 { background: var(--api-34-color); }
+.api-35 { background: var(--api-35-color); }
+.api-36 { background: var(--api-36-color); }
+
+/* ── Badge Legend ── */
+.badge-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--paper-2);
+  border: 1px solid var(--ink-100);
+  border-radius: 8px;
+  margin-bottom: 48px;
+}
+.badge-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--ink-600);
+}
+
+/* ═══════════════════ SECTION HEADERS ═══════════════════ */
+.chapter {
+  padding-top: 60px;
+  margin-top: 8px;
+  border-top: 2px solid var(--ink-900);
+  margin-bottom: 28px;
+  max-width: var(--content-max);
+}
+.chapter-num {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 8px;
+}
+.chapter h2 {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  color: var(--ink-900);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.chapter .ch-desc {
+  font-size: 13.5px;
+  color: var(--ink-400);
+  margin-top: 9px;
+  font-style: italic;
+  font-family: var(--f-display);
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 600px;
+}
+
+/* ═══════════════════ TYPOGRAPHY ═══════════════════ */
+h3 {
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 36px 0 12px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: var(--content-max);
+}
+h4 {
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-500);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 28px 0 10px;
+  max-width: var(--content-max);
+}
+p {
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: var(--content-max);
+}
+.lead {
+  font-size: 16.5px;
+  font-weight: 400;
+  color: var(--ink-700);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--amber-bd);
+  padding-left: 18px;
+  max-width: var(--content-max);
+}
+strong { font-weight: 600; color: var(--ink-900); }
+em { font-style: italic; color: var(--ink-700); }
+a { color: var(--amber); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--ink-900); text-decoration: underline; }
+.ext::after { content: ' ↗'; font-size: 0.8em; opacity: 0.7; }
+
+/* ═══════════════════ LISTS ═══════════════════ */
+ul, ol {
+  padding-left: 0;
+  margin-bottom: 20px;
+  list-style: none;
+  max-width: var(--content-max);
+}
+ul li, ol li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 7px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-700);
+}
+ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--amber-bd);
+}
+ol { counter-reset: ol-c; }
+ol li::before {
+  content: counter(ol-c) '.';
+  counter-increment: ol-c;
+  position: absolute;
+  left: 0;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--amber);
+  top: 4px;
+}
+li strong { color: var(--ink-900); }
+
+/* ── Checklist ── */
+.checklist { margin-bottom: 24px; max-width: var(--content-max); }
+.checklist li {
+  padding: 6px 12px 6px 36px;
+  font-size: 14px;
+  line-height: 1.55;
+  background: var(--paper-2);
+  border: 1px solid var(--ink-100);
+  border-radius: 5px;
+  margin-bottom: 4px;
+  color: var(--ink-700);
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 10px;
+  color: var(--beginner);
+  font-size: 12px;
+  font-weight: 600;
+  top: 7px;
+}
+.checklist li.cat {
+  background: var(--ink-900);
+  color: var(--ink-50);
+  border-color: var(--ink-900);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-left: 14px;
+  margin-top: 10px;
+}
+.checklist li.cat::before { display: none; }
+
+/* ═══════════════════ CODE ═══════════════════ */
+code {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--ink-900);
+  border: 1px solid var(--ink-100);
+}
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--ink-100);
+  border-radius: 8px;
+  padding: 20px 22px;
+  overflow-x: auto;
+  margin: 18px 0 22px;
+  max-width: var(--content-max);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+pre code {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink-800);
+  line-height: 1.65;
+}
+pre .lang-label {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+/* Syntax colours */
+.kw  { color: var(--code-kw); font-weight: 600; }
+.fn  { color: var(--code-fn); }
+.str { color: var(--code-str); }
+.cm  { color: var(--code-cm); font-style: italic; }
+.num { color: var(--code-num); }
+.ty  { color: var(--code-ty); }
+.an  { color: var(--code-an); }
+.at  { color: var(--amber-lt); }
+.tg  { color: var(--code-kw); }
+
+/* ═══════════════════ CALLOUTS ═══════════════════ */
+.callout {
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 20px 0;
+  display: flex;
+  gap: 14px;
+  max-width: var(--content-max);
+}
+.callout-icon { font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+.callout-body { flex: 1; }
+.callout-body strong { font-size: 13.5px; display: block; margin-bottom: 5px; }
+.callout-body p { font-size: 13.5px; margin-bottom: 0; line-height: 1.6; }
+.callout-info    { background: var(--note-bg); border-left: 4px solid var(--info); }
+.callout-tip     { background: var(--beginner-bg); border-left: 4px solid var(--beginner); }
+.callout-warning { background: var(--inter-bg); border-left: 4px solid var(--intermediate); }
+.callout-danger  { background: #FCF0F0; border-left: 4px solid var(--error); }
+.callout-expert  { background: var(--expert-bg); border-left: 4px solid var(--expert); }
+
+/* ═══════════════════ TABLES ═══════════════════ */
+.table-wrap { overflow-x: auto; margin: 18px 0 24px; max-width: var(--content-max); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+thead { background: var(--paper-3); }
+th {
+  text-align: left;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-600);
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--ink-900);
+  white-space: nowrap;
+}
+td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--ink-100);
+  line-height: 1.55;
+  color: var(--ink-700);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--paper-2); }
+td code { font-size: 11.5px; }
+
+/* ═══════════════════ SPEC CARDS ═══════════════════ */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 18px 0 24px;
+  max-width: var(--content-max);
+}
+.spec-card {
+  background: var(--paper-2);
+  border: 1px solid var(--ink-100);
+  border-radius: 7px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.spec-val {
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--amber);
+  line-height: 1;
+}
+.spec-label { font-size: 11px; color: var(--ink-600); font-weight: 500; }
+.spec-note  { font-size: 10.5px; color: var(--ink-400); font-style: italic; }
+
+/* ── API Table Row Highlights ── */
+.api-row-30 { border-left: 3px solid var(--api-30-color); }
+.api-row-31 { border-left: 3px solid var(--api-31-color); }
+.api-row-33 { border-left: 3px solid var(--api-33-color); }
+.api-row-34 { border-left: 3px solid var(--api-34-color); }
+.api-row-35 { border-left: 3px solid var(--api-35-color); }
+.api-row-36 { border-left: 3px solid var(--api-36-color); background: var(--amber-bg); }
+
+/* ═══════════════════ SECTION DIVIDER ═══════════════════ */
+.section-break {
+  height: 1px;
+  background: linear-gradient(to right, var(--amber-bd), transparent);
+  margin: 52px 0 0;
+  max-width: var(--content-max);
+}
+
+/* ═══════════════════ ROLE PATHS ═══════════════════ */
+.role-paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 18px 0 28px;
+  max-width: var(--content-max);
+}
+.role-card {
+  background: var(--paper-2);
+  border: 1px solid var(--ink-100);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.role-card .role-icon { font-size: 22px; margin-bottom: 8px; }
+.role-card .role-title { font-weight: 600; font-size: 14px; color: var(--ink-900); margin-bottom: 6px; }
+.role-card .role-start { font-size: 12.5px; color: var(--ink-600); line-height: 1.55; }
+.role-card a { color: var(--amber); font-weight: 500; }
+
+/* ═══════════════════ REF LIST ═══════════════════ */
+.ref-list { list-style: none; padding: 0; max-width: var(--content-max); }
+.ref-list li { padding-left: 0; margin-bottom: 10px; }
+.ref-list li::before { display: none; }
+.ref-list .ref-title { font-size: 14px; font-weight: 500; color: var(--ink-900); display: block; margin-bottom: 2px; }
+.ref-list .ref-url { font-family: var(--f-mono); font-size: 10.5px; color: var(--amber); word-break: break-all; }
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+.doc-footer {
+  margin-top: 80px;
+  padding: 28px 0 40px;
+  border-top: 2px solid var(--ink-900);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: var(--content-max);
+}
+.footer-brand { font-family: var(--f-display); font-size: 17px; font-weight: 700; color: var(--ink-900); }
+.footer-meta { font-family: var(--f-mono); font-size: 9.5px; color: var(--ink-400); line-height: 1.9; letter-spacing: 0.05em; }
+
+/* ═══════════════════ RESPONSIVE ═══════════════════ */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { padding: 0 20px 60px; }
+}
+
+/* ═══════════════════ PRINT ═══════════════════ */
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  html { font-size: 12px; }
+  body { background: white; color: black; }
+  .sidebar { display: none !important; }
+  .main { padding: 0; }
+  .layout { display: block; }
+  a { color: inherit; border-bottom: none; }
+  a[href^="http"]::after { content: " [" attr(href) "]"; font-size: 8px; color: gray; }
+  a[href^="#"]::after { display: none; }
+  pre { background: #F4F1ED; border: 1px solid #CCC; page-break-inside: avoid; }
+  .chapter { page-break-before: always; }
+  .cover { page-break-after: always; }
+  h2, h3, h4 { page-break-after: avoid; }
+  table { page-break-inside: avoid; }
+  .callout { border: 1px solid #CCC; background: #F8F8F8; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ═══════════════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════════════ -->
+<nav class="sidebar" aria-label="Document navigation">
+  <div class="sidebar-brand">
+    <span class="logo-mark">Made in Jurgistan</span>
+    <h2>Android Keyboard<br>3D &amp; Personalization</h2>
+    <p class="edition">2026 Extension Volume · API 30–36</p>
+  </div>
+
+  <div class="nav-group">
+    <span class="nav-group-label">Orientation</span>
+    <a href="#s01"><span class="n">01</span>About This Volume</a>
+    <a href="#s02"><span class="n">02</span>Rendering Architecture Overview</a>
+    <a href="#s03"><span class="n">03</span>Open Source Reference IMEs</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">3D Foundations</span>
+    <a href="#s04"><span class="n">04</span>OpenGL ES for Keyboards</a>
+    <a href="#s05"><span class="n">05</span>GLSurfaceView in IME</a>
+    <a href="#s06"><span class="n">06</span>3D Key Geometry &amp; Meshes</a>
+    <a href="#s07"><span class="n">07</span>GLSL Shaders — Depth &amp; Bevel</a>
+    <a href="#s08"><span class="n">08</span>Lighting Models for Keys</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Filament PBR</span>
+    <a href="#s09"><span class="n">09</span>Filament Integration</a>
+    <a href="#s10"><span class="n">10</span>PBR Materials on Keys</a>
+    <a href="#s11"><span class="n">11</span>SceneView &amp; Compose Bridge</a>
+    <a href="#s12"><span class="n">12</span>IBL Environment Lighting</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Custom Rendering</span>
+    <a href="#s13"><span class="n">13</span>Canvas + Hardware Acceleration</a>
+    <a href="#s14"><span class="n">14</span>ComposeUI Shader Effects</a>
+    <a href="#s15"><span class="n">15</span>TextureView Overlay Techniques</a>
+    <a href="#s16"><span class="n">16</span>Particle &amp; Ripple Systems</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Deep Personalization</span>
+    <a href="#s17"><span class="n">17</span>Custom Layout XML Architecture</a>
+    <a href="#s18"><span class="n">18</span>Per-Key Shape &amp; Geometry</a>
+    <a href="#s19"><span class="n">19</span>Dynamic Theme Engine</a>
+    <a href="#s20"><span class="n">20</span>User-Uploaded Backgrounds</a>
+    <a href="#s21"><span class="n">21</span>Sound &amp; Haptic Packs</a>
+    <a href="#s22"><span class="n">22</span>Font &amp; Label Customization</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Game Engine Bridges</span>
+    <a href="#s23"><span class="n">23</span>Unity Android Plugin</a>
+    <a href="#s24"><span class="n">24</span>Godot Android Library</a>
+    <a href="#s25"><span class="n">25</span>AR Keyboard with Sceneform</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Advanced Topics</span>
+    <a href="#s26"><span class="n">26</span>AI-Driven Personalization</a>
+    <a href="#s27"><span class="n">27</span>Live Wallpaper Background Keys</a>
+    <a href="#s28"><span class="n">28</span>Performance Budgets for 3D</a>
+    <a href="#s29"><span class="n">29</span>QA Checklist — 3D &amp; Visual</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-group-label">Reference</span>
+    <a href="#s30"><span class="n">30</span>Open Source Project Index</a>
+    <a href="#s31"><span class="n">31</span>References &amp; Further Reading</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════ -->
+<main class="main">
+
+<!-- COVER -->
+<header class="cover" id="cover">
+  <p class="eyebrow">Technical Design Series — Extension Volume</p>
+  <h1>Android Keyboard<br><em>3D &amp; Personalization</em></h1>
+  <p class="subtitle">A comprehensive companion to the Android Keyboard Design Guide 2026. Covers every technique for building deeply customized keyboards — from OpenGL ES 3D rendering and Filament PBR shading to per-user dynamic themes, game engine bridges, AI-driven personalization, and production performance budgets. Verified API 30–36, full Kotlin/GLSL code examples.</p>
+  <div class="cover-pills">
+    <span class="pill pill-dark">Made in Jurgistan</span>
+    <span class="pill pill-amber">2026 Extension Vol.</span>
+    <span class="pill pill-muted">31 Sections · Full Code</span>
+    <span class="pill pill-expert">Expert 3D &amp; PBR</span>
+    <span class="pill pill-green">Filament · OpenGL ES · GLSL</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-400);font-family:var(--f-mono);letter-spacing:0.04em;">Companion to: <a href="#" style="color:var(--amber);">Android Keyboard Design Guide 2026 — Complete Edition</a></p>
+</header>
+
+<!-- BADGE LEGEND -->
+<div class="badge-legend">
+  <div class="badge-legend-item">
+    <span class="badge b-beginner">Beginner</span>
+    <span>Canvas drawing, XML layouts, basic theming</span>
+  </div>
+  <div class="badge-legend-item">
+    <span class="badge b-intermediate">Intermediate</span>
+    <span>OpenGL ES setup, Compose shaders, custom rendering</span>
+  </div>
+  <div class="badge-legend-item">
+    <span class="badge b-expert">Expert</span>
+    <span>Filament PBR, game engine bridges, real-time 3D in IME</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 01 ─────────────────────────────── -->
+<section id="s01">
+<div class="chapter">
+  <span class="chapter-num">Section 01</span>
+  <h2>About This Volume <span class="badge b-beginner">Beginner</span></h2>
+  <p class="ch-desc">Scope, prerequisites, and how this extension fits into the broader keyboard design series</p>
+</div>
+
+<p class="lead">This guide extends the <a href="#cover">Android Keyboard Design Guide 2026 — Complete Edition</a> with a full deep-dive into <strong>3D rendering, advanced personalization, and custom visual systems</strong>. Where the base guide establishes IME architecture, UX principles, and accessibility, this volume assumes you have that foundation and focuses exclusively on everything that makes a keyboard look, feel, and behave in ways that are uniquely yours.</p>
+
+<p>A standard Android keyboard uses a <code>View</code> hierarchy rendered by the system's 2D canvas pipeline. Everything in this guide goes further: GPU-accelerated 3D geometry, physically-based rendering materials on individual keys, live particle effects on keystroke, user-uploadable themes backed by a typed schema, and bridges to Unity and Godot for teams with existing game-engine expertise.</p>
+
+<h3>Prerequisites</h3>
+<ul>
+  <li>Working knowledge of <code>InputMethodService</code>, <code>onCreateInputView()</code>, and the IME lifecycle (see <a href="#">Section 05</a> of the base guide).</li>
+  <li>Familiarity with Kotlin coroutines and Jetpack Compose basics.</li>
+  <li>Basic understanding of how Android draws views (invalidate/draw cycle, hardware acceleration).</li>
+  <li>For 3D sections (04–12): some exposure to coordinate systems and matrix math is helpful but not required — all math is explained inline.</li>
+</ul>
+
+<h3>Reading Paths</h3>
+<div class="role-paths">
+  <div class="role-card">
+    <div class="role-icon">🎨</div>
+    <div class="role-title">Designer / Theme Author</div>
+    <div class="role-start">Start with <a href="#s17">§17 Layout XML</a> → <a href="#s19">§19 Theme Engine</a> → <a href="#s20">§20 Backgrounds</a> → <a href="#s22">§22 Fonts</a></div>
+  </div>
+  <div class="role-card">
+    <div class="role-icon">⚙️</div>
+    <div class="role-title">Android Engineer</div>
+    <div class="role-start">Start with <a href="#s04">§04 OpenGL ES</a> → <a href="#s05">§05 GLSurfaceView</a> → <a href="#s13">§13 Canvas</a> → <a href="#s28">§28 Performance</a></div>
+  </div>
+  <div class="role-card">
+    <div class="role-icon">🔦</div>
+    <div class="role-title">3D / Graphics Engineer</div>
+    <div class="role-start">Start with <a href="#s07">§07 GLSL Shaders</a> → <a href="#s09">§09 Filament</a> → <a href="#s12">§12 IBL</a> → <a href="#s25">§25 AR Keyboard</a></div>
+  </div>
+  <div class="role-card">
+    <div class="role-icon">🕹️</div>
+    <div class="role-title">Game Developer</div>
+    <div class="role-start">Start with <a href="#s23">§23 Unity</a> → <a href="#s24">§24 Godot</a> → <a href="#s14">§14 Compose Shaders</a></div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <span class="callout-icon">ℹ️</span>
+  <div class="callout-body">
+    <strong>Performance Warning Up Front</strong>
+    <p>3D rendering in an IME consumes GPU resources that compete with the foreground application. Every technique in this guide includes a performance budget note. Always profile on low-end devices (Snapdragon 4xx, MediaTek Helio G85) before shipping. See <a href="#s28">Section 28</a> for the full budget framework.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 02 ─────────────────────────────── -->
+<section id="s02">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 02</span>
+  <h2>Rendering Architecture Overview <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Comparing all available rendering pipelines — from Android Canvas to Filament PBR — and choosing the right one</p>
+</div>
+
+<p class="lead">Android provides multiple paths for rendering a keyboard's UI. Your choice determines visual quality ceiling, complexity, and performance impact. This section maps every available option against a set of practical criteria.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Rendering Path</th><th>API Level</th><th>3D Capable</th><th>PBR</th><th>Compose Compatible</th><th>GPU Cost</th><th>Best For</th></tr></thead>
+<tbody>
+<tr class="api-row-30"><td><strong>Android Canvas (2D)</strong></td><td><span class="api api-30">API 21+</span></td><td>❌</td><td>❌</td><td>✅ Native</td><td>Very Low</td><td>Standard keyboard theming, flat design</td></tr>
+<tr class="api-row-31"><td><strong>Hardware-Accelerated Canvas</strong></td><td><span class="api api-31">API 26+</span></td><td>Pseudo 3D only</td><td>❌</td><td>✅</td><td>Low</td><td>Shadows, layered drawables, bevel illusions</td></tr>
+<tr class="api-row-33"><td><strong>OpenGL ES 2.0 / 3.x + GLSurfaceView</strong></td><td><span class="api api-33">API 21+</span></td><td>✅</td><td>Custom GLSL</td><td>Via TextureView</td><td>Medium</td><td>Full 3D keys, custom shaders, particle effects</td></tr>
+<tr class="api-row-34"><td><strong>Vulkan</strong></td><td><span class="api api-34">API 24+</span></td><td>✅</td><td>✅</td><td>Via SurfaceView</td><td>Medium–High</td><td>Very high-end; rarely justified for keyboards</td></tr>
+<tr class="api-row-35"><td><strong>Filament (Google PBR)</strong></td><td><span class="api api-35">API 21+</span></td><td>✅</td><td>✅ Full PBR</td><td>Via SurfaceView</td><td>Medium</td><td>Physically accurate materials, IBL lighting</td></tr>
+<tr class="api-row-36"><td><strong>Compose AGSL Shaders</strong></td><td><span class="api api-36">API 33+</span></td><td>Pseudo 3D</td><td>Partial</td><td>✅ Native</td><td>Low–Medium</td><td>Animated gradients, blur, noise, distortion</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Decision Framework</h3>
+<ol>
+  <li><strong>Are you targeting all Android 5+ devices?</strong> Use Canvas for base layers; OpenGL ES 2.0 for 3D overlays. Avoid Vulkan and AGSL shaders for broad support.</li>
+  <li><strong>Do you need physically accurate materials</strong> (metallic keys, glass, rubber)?  Filament is your only practical option without writing a full PBR renderer from scratch.</li>
+  <li><strong>Is your team already in Jetpack Compose?</strong> Use AGSL shaders via <code>ShaderBrush</code> for effects; reserve OpenGL for genuine geometry.</li>
+  <li><strong>Are you shipping a game-engine-powered keyboard</strong> (Unity / Godot)? See Sections <a href="#s23">23</a> and <a href="#s24">24</a> — the engine manages rendering entirely.</li>
+</ol>
+
+<div class="callout callout-expert">
+  <span class="callout-icon">◆</span>
+  <div class="callout-body">
+    <strong>Recommended Hybrid Architecture</strong>
+    <p>Production keyboards typically use a <strong>Canvas base layer</strong> for key outlines and labels (low cost, accessible, easy theming), with a <strong>GLSurfaceView or TextureView overlay</strong> for 3D effects, particle systems, or PBR highlights. The IME draws both surfaces through Android's compositor. This gives you the accessibility of Canvas rendering (TalkBack works, dynamic text scaling works) while layering real GPU effects on top.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 03 ─────────────────────────────── -->
+<section id="s03">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 03</span>
+  <h2>Open Source Reference IMEs <span class="badge b-beginner">Beginner</span></h2>
+  <p class="ch-desc">The essential open-source keyboard projects — what each teaches, and where to find advanced rendering examples</p>
+</div>
+
+<p class="lead">Before writing a single shader, spend time in these codebases. Each has solved architectural problems that would take months to discover independently. They are your best reference for how real keyboards handle theming, layout, and rendering at scale.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Project</th><th>License</th><th>Language</th><th>3D / Visual Features</th><th>Best Learning Area</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/florisboard/florisboard" class="ext">FlorisBoard</a></td><td>Apache 2.0</td><td>Kotlin + Compose</td><td>Snygg theme engine, dynamic colors</td><td>Modern theme architecture, Compose IME integration</td></tr>
+<tr><td><a href="https://github.com/AnySoftKeyboard/AnySoftKeyboard" class="ext">AnySoftKeyboard</a></td><td>Apache 2.0</td><td>Java + Kotlin</td><td>3D theme pack (separate APK), NinePatch key drawables</td><td>Multi-language layout, subtype management, theme extension API</td></tr>
+<tr><td><a href="https://github.com/openboard-team/openboard" class="ext">OpenBoard</a></td><td>GPL 3.0</td><td>Java + Kotlin</td><td>Improved LatinIME rendering pipeline</td><td>LatinIME fork — XML layout system, hit-box math</td></tr>
+<tr><td><a href="https://github.com/LiteKite/Android-IME" class="ext">kBoard (LiteKite/Android-IME)</a></td><td>Apache 2.0</td><td>Kotlin</td><td>Clean architecture, MVVM</td><td>MVVM IME architecture, ViewModel in IME context</td></tr>
+<tr><td><a href="https://github.com/DonBrody/Android-CustomKeyboard" class="ext">DonBrody/Android-CustomKeyboard</a></td><td>MIT</td><td>Java</td><td>In-app keyboard (not IME)</td><td>Simplest possible custom keyboard — good starting point</td></tr>
+<tr><td><a href="https://github.com/shutterscripter/Custom_Android_Keyboard" class="ext">shutterscripter/Custom_Android_Keyboard</a></td><td>MIT</td><td>Java</td><td>Custom layout XML, themed keys</td><td>Layout XML customization patterns</td></tr>
+<tr><td><a href="https://android.googlesource.com/platform/packages/inputmethods/LatinIME" class="ext">AOSP LatinIME</a></td><td>Apache 2.0</td><td>Java/C++</td><td>KeyboardView canvas rendering</td><td>Gold standard reference — all layout and drawing math</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>AnySoftKeyboard's 3D Theme Pack — How It Works</h3>
+<p><a href="https://f-droid.org/en/packages/com.anysoftkeyboard.theme.three_d/" class="ext">AnySoftKeyboard 3D Theme</a> achieves its "3D buttons" look using a combination of <strong>NinePatch drawables</strong> with precisely crafted shadows and highlights baked into the PNG assets, and a custom <code>KeyboardView</code> subclass that adjusts the rendering order to paint shadow layers before key labels. This is a CPU-only approach — no GPU shaders — but it demonstrates that a convincing 3D appearance is achievable without OpenGL.</p>
+
+<pre><code><span class="cm">// From AnySoftKeyboard's theme extension pattern:
+// 1. Each theme is a separate APK with its own drawable resources.
+// 2. The host keyboard loads theme resources via PackageManager.
+// 3. Key drawables follow the naming convention: key_normal.9.png, key_pressed.9.png</span>
+
+<span class="cm">// Loading a theme drawable from an external theme APK:</span>
+<span class="kw">val</span> themeContext = <span class="fn">createPackageContext</span>(
+    themePackageName,
+    Context.CONTEXT_IGNORE_SECURITY
+)
+<span class="kw">val</span> themeResources = themeContext.resources
+<span class="kw">val</span> drawableId = themeResources.<span class="fn">getIdentifier</span>(
+    <span class="str">"key_normal"</span>, <span class="str">"drawable"</span>, themePackageName
+)
+<span class="kw">val</span> keyDrawable = themeResources.<span class="fn">getDrawable</span>(drawableId, <span class="kw">null</span>)</code></pre>
+
+<div class="callout callout-tip">
+  <span class="callout-icon">✓</span>
+  <div class="callout-body">
+    <strong>Start with FlorisBoard's Snygg Engine</strong>
+    <p>FlorisBoard's theme engine (called "Snygg") is the most architecturally modern open-source keyboard theme system available. It uses a typed JSON schema for themes, supports Material You dynamic colors, and has a functioning theme editor. Study <a href="https://github.com/florisboard/florisboard/tree/main/app/src/main/kotlin/dev/patrickgold/florisboard/snygg" class="ext">the Snygg source directory</a> before building your own theme system.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 04 ─────────────────────────────── -->
+<section id="s04">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 04</span>
+  <h2>OpenGL ES for Keyboards <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">The OpenGL ES rendering model, coordinate systems, and why keyboards present unique integration challenges</p>
+</div>
+
+<p class="lead"><strong>OpenGL ES</strong> (OpenGL for Embedded Systems) is the primary low-level GPU API on Android. It is available on every Android device from API 21 onwards. Unlike desktop OpenGL, ES targets mobile GPUs — it has a reduced instruction set, stricter precision rules, and a programming model designed for tile-based deferred rendering architectures used by Qualcomm Adreno, ARM Mali, and Imagination PowerVR chips.</p>
+
+<h3>OpenGL ES Version Matrix</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Version</th><th>Android API</th><th>Key Features Added</th><th>Keyboard Use Case</th></tr></thead>
+<tbody>
+<tr class="api-row-30"><td><strong>OpenGL ES 2.0</strong></td><td><span class="api api-30">API 8+</span></td><td>Programmable shaders (vertex + fragment)</td><td>Basic 3D key geometry, simple materials</td></tr>
+<tr class="api-row-33"><td><strong>OpenGL ES 3.0</strong></td><td><span class="api api-33">API 18+</span></td><td>Multiple render targets, instanced drawing, transform feedback</td><td>Particle systems, multi-pass rendering, instanced key drawing</td></tr>
+<tr class="api-row-34"><td><strong>OpenGL ES 3.1</strong></td><td><span class="api api-34">API 21+</span></td><td>Compute shaders, SSBO, indirect draw</td><td>GPU-driven particle simulation, layout computation</td></tr>
+<tr class="api-row-36"><td><strong>OpenGL ES 3.2</strong></td><td><span class="api api-36">API 24+</span></td><td>Geometry shaders, tessellation, advanced blend</td><td>Smooth curved key edges, advanced material blending</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The Coordinate System</h3>
+<p>OpenGL ES uses a <strong>right-handed coordinate system</strong> with the origin at the center of the viewport. X increases to the right, Y increases upward, and Z increases toward the viewer. This differs from Android's View coordinate system where Y increases downward. You must account for this flip in every vertex shader that positions keyboard elements.</p>
+
+<pre><code><span class="cm">// Vertex shader — converting Android screen coords to OpenGL ES NDC
+// Android: (0,0) top-left, Y down. OpenGL NDC: (-1,-1) bottom-left, Y up</span>
+<span class="kw">attribute</span> <span class="ty">vec4</span> aPosition;  <span class="cm">// x, y in Android screen space (pixels)</span>
+<span class="kw">uniform</span>   <span class="ty">vec2</span> uResolution; <span class="cm">// screen width, height</span>
+<span class="kw">uniform</span>   <span class="ty">mat4</span> uMVP;        <span class="cm">// model-view-projection matrix</span>
+
+<span class="kw">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Normalize to [0, 1]</span>
+    <span class="ty">vec2</span> normalised = aPosition.xy / uResolution;
+    <span class="cm">// Flip Y and remap to [-1, 1]</span>
+    <span class="ty">vec2</span> clipSpace = (normalised * <span class="num">2.0</span> - <span class="num">1.0</span>) * <span class="ty">vec2</span>(<span class="num">1.0</span>, -<span class="num">1.0</span>);
+    <span class="fn">gl_Position</span> = uMVP * <span class="ty">vec4</span>(clipSpace, aPosition.zw);
+}</code></pre>
+
+<h3>Manifest Declaration</h3>
+<p>Declare the required OpenGL ES version in your <code>AndroidManifest.xml</code>. The IME <code>service</code> element does not need any changes — the declaration applies to the whole application.</p>
+
+<pre><code><span class="cm">&lt;!-- In AndroidManifest.xml, inside &lt;manifest&gt; --&gt;</span>
+<span class="tg">&lt;uses-feature</span>
+    <span class="at">android:glEsVersion</span>=<span class="str">"0x00030000"</span>
+    <span class="at">android:required</span>=<span class="str">"true"</span> <span class="tg">/&gt;</span>
+<span class="cm">&lt;!-- 0x00020000 = ES 2.0, 0x00030000 = ES 3.0, 0x00030002 = ES 3.2 --&gt;</span></code></pre>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>Setting required="true" limits your audience</strong>
+    <p>Declaring a feature as required removes your app from the Play Store for devices that don't support it. For keyboards targeting the widest audience, set <code>android:required="false"</code> and check at runtime with <code>GLES30.glGetString(GLES30.GL_VERSION)</code>, falling back gracefully to Canvas rendering on unsupported devices.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 05 ─────────────────────────────── -->
+<section id="s05">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 05</span>
+  <h2>GLSurfaceView in an IME <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">How to embed a GLSurfaceView inside InputMethodService, lifecycle synchronization, and EGL context management</p>
+</div>
+
+<p class="lead">Embedding a <code>GLSurfaceView</code> inside an IME requires careful lifecycle management. Unlike an Activity, an IME has no <code>onPause()</code>/<code>onResume()</code> equivalents that automatically pause the GL thread. You must drive the OpenGL renderer lifecycle manually from the IME callbacks.</p>
+
+<h3>Full Integration Skeleton</h3>
+<pre><code><span class="cm">// Full GLSurfaceView IME integration — Kotlin</span>
+<span class="kw">class</span> <span class="ty">Keyboard3DService</span> : <span class="ty">InputMethodService</span>() {
+
+    <span class="kw">private</span> <span class="kw">var</span> glView: <span class="ty">KeyboardGLSurfaceView</span>? = <span class="kw">null</span>
+    <span class="kw">private</span> <span class="kw">var</span> renderer: <span class="ty">KeyboardRenderer</span>? = <span class="kw">null</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+        <span class="kw">val</span> renderer = <span class="ty">KeyboardRenderer</span>()
+        <span class="kw">this</span>.renderer = renderer
+
+        <span class="kw">val</span> glView = <span class="ty">KeyboardGLSurfaceView</span>(<span class="kw">this</span>).apply {
+            <span class="fn">setEGLContextClientVersion</span>(<span class="num">3</span>)             <span class="cm">// Request OpenGL ES 3.0</span>
+            <span class="fn">setRenderer</span>(renderer)
+            renderMode = <span class="ty">GLSurfaceView</span>.RENDERMODE_WHEN_DIRTY
+            <span class="cm">// RENDERMODE_WHEN_DIRTY = render only when requestRender() is called
+            // Use RENDERMODE_CONTINUOUSLY only for animated effects</span>
+        }
+        <span class="kw">this</span>.glView = glView
+        <span class="kw">return</span> glView
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onStartInputView</span>(info: <span class="ty">EditorInfo</span>, restarting: <span class="ty">Boolean</span>) {
+        <span class="kw">super</span>.<span class="fn">onStartInputView</span>(info, restarting)
+        glView?.<span class="fn">onResume</span>()  <span class="cm">// Resume the GL thread</span>
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onFinishInputView</span>(finishingInput: <span class="ty">Boolean</span>) {
+        glView?.<span class="fn">onPause</span>()   <span class="cm">// Pause the GL thread when keyboard hides</span>
+        <span class="kw">super</span>.<span class="fn">onFinishInputView</span>(finishingInput)
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDestroy</span>() {
+        renderer?.<span class="fn">release</span>() <span class="cm">// Release OpenGL resources on service teardown</span>
+        <span class="kw">super</span>.<span class="fn">onDestroy</span>()
+    }
+}
+
+<span class="cm">// Custom GLSurfaceView that preserves the EGL context across hide/show cycles</span>
+<span class="kw">class</span> <span class="ty">KeyboardGLSurfaceView</span>(context: <span class="ty">Context</span>) : <span class="ty">GLSurfaceView</span>(context) {
+    <span class="kw">init</span> {
+        <span class="cm">// IMPORTANT: preserve the EGL context so textures/shaders survive
+        // keyboard hide/show cycles without full re-initialization</span>
+        <span class="fn">setPreserveEGLContextOnPause</span>(<span class="kw">true</span>)
+    }
+}</code></pre>
+
+<h3>EGL Context Preservation</h3>
+<p>By default, a <code>GLSurfaceView</code> destroys its EGL context when paused. For an IME that is frequently hidden and shown (every time the user focuses a text field), this would cause full shader recompilation and texture re-upload on every appearance — adding 100–400 ms of lag. Calling <code>setPreserveEGLContextOnPause(true)</code> is <strong>mandatory</strong> for keyboard use.</p>
+
+<h3>Renderer Implementation Skeleton</h3>
+<pre><code><span class="kw">class</span> <span class="ty">KeyboardRenderer</span> : <span class="ty">GLSurfaceView.Renderer</span> {
+
+    <span class="kw">private</span> <span class="kw">var</span> shaderProgram = <span class="num">0</span>
+    <span class="kw">private</span> <span class="kw">var</span> keyVBO = <span class="num">0</span>
+    <span class="kw">private</span> <span class="kw">var</span> viewWidth = <span class="num">0</span>
+    <span class="kw">private</span> <span class="kw">var</span> viewHeight = <span class="num">0</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceCreated</span>(gl: <span class="ty">GL10</span>?, config: <span class="ty">EGLConfig</span>?) {
+        <span class="cm">// Called once (or after EGL context loss)
+        // Safe to create shaders, upload textures, build VBOs here</span>
+        GLES30.<span class="fn">glClearColor</span>(<span class="num">0f</span>, <span class="num">0f</span>, <span class="num">0f</span>, <span class="num">0f</span>) <span class="cm">// Transparent background</span>
+        shaderProgram = <span class="fn">buildShaderProgram</span>(VERT_SRC, FRAG_SRC)
+        keyVBO = <span class="fn">buildKeyGeometry</span>()
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceChanged</span>(gl: <span class="ty">GL10</span>?, width: <span class="ty">Int</span>, height: <span class="ty">Int</span>) {
+        <span class="cm">// Called on creation and every rotation/resize</span>
+        viewWidth = width; viewHeight = height
+        GLES30.<span class="fn">glViewport</span>(<span class="num">0</span>, <span class="num">0</span>, width, height)
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDrawFrame</span>(gl: <span class="ty">GL10</span>?) {
+        GLES30.<span class="fn">glClear</span>(GLES30.GL_COLOR_BUFFER_BIT or GLES30.GL_DEPTH_BUFFER_BIT)
+        <span class="cm">// Draw key geometry here</span>
+        <span class="fn">drawKeys</span>()
+    }
+
+    <span class="kw">fun</span> <span class="fn">release</span>() {
+        <span class="cm">// Called from service thread — must delete GL resources on GL thread</span>
+        glView?.<span class="fn">queueEvent</span> {
+            GLES30.<span class="fn">glDeleteProgram</span>(shaderProgram)
+            GLES30.<span class="fn">glDeleteBuffers</span>(<span class="num">1</span>, intArrayOf(keyVBO), <span class="num">0</span>)
+        }
+    }
+}</code></pre>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>GL resources must be created and destroyed on the GL thread</strong>
+    <p>All OpenGL calls must happen on the GL thread, which is separate from the main/UI thread. Use <code>glView.queueEvent { }</code> to safely post work to the GL thread from any other thread. Never create or delete GL objects from the IME's main thread.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 06 ─────────────────────────────── -->
+<section id="s06">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 06</span>
+  <h2>3D Key Geometry &amp; Meshes <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Building beveled, rounded, and extruded key meshes in code — vertex arrays, index buffers, and procedural geometry</p>
+</div>
+
+<p class="lead">A 3D keyboard key is fundamentally a <strong>rectangular solid with rounded edges and a beveled top face</strong>. This shape can be built procedurally from vertex data — no external 3D assets required. Understanding the geometry pipeline is prerequisite to all shader and lighting work.</p>
+
+<h3>Key Anatomy (3D)</h3>
+<div class="spec-grid">
+  <div class="spec-card">
+    <span class="spec-val">Top Face</span>
+    <span class="spec-label">Flat quad — label rendered here</span>
+    <span class="spec-note">Slightly inset from key edges</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">Bevel</span>
+    <span class="spec-label">Ring of quads around top face</span>
+    <span class="spec-note">~2–4dp wide, angled ~30°</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">Side Walls</span>
+    <span class="spec-label">4 rectangular quads</span>
+    <span class="spec-note">Height ~4–8dp (key depth)</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">Bottom Face</span>
+    <span class="spec-label">Flat quad — usually hidden</span>
+    <span class="spec-note">Omit for performance</span>
+  </div>
+</div>
+
+<h3>Procedural Bevel Key Mesh</h3>
+<pre><code><span class="cm">/**
+ * Generates vertex data for a single 3D beveled key.
+ *
+ * Layout: [x, y, z, nx, ny, nz, u, v] per vertex (8 floats)
+ * where (nx,ny,nz) is the surface normal and (u,v) is the UV coordinate.
+ *
+ * @param x      left edge in normalized device coordinates
+ * @param y      top edge in NDC
+ * @param w      width in NDC
+ * @param h      height in NDC
+ * @param depth  extrusion depth (z-axis) — try 0.04f for subtle 3D
+ * @param bevel  bevel ring width — try 0.08f (fraction of min(w,h))
+ */</span>
+<span class="kw">fun</span> <span class="fn">buildBevelKeyMesh</span>(
+    x: <span class="ty">Float</span>, y: <span class="ty">Float</span>, w: <span class="ty">Float</span>, h: <span class="ty">Float</span>,
+    depth: <span class="ty">Float</span> = <span class="num">0.04f</span>,
+    bevel: <span class="ty">Float</span> = <span class="num">0.08f</span>
+): <span class="ty">FloatArray</span> {
+    <span class="kw">val</span> bx = bevel * w   <span class="cm">// bevel width on x axis</span>
+    <span class="kw">val</span> by = bevel * h   <span class="cm">// bevel width on y axis</span>
+
+    <span class="cm">// --- Top face (flat, faces +Z) ---
+    // Outer bevel ring vertices (at full key footprint, z = depth * 0.5)
+    // Inner top vertices (inset by bevel, z = depth)</span>
+    <span class="kw">val</span> outerZ = depth * <span class="num">0.5f</span>
+    <span class="kw">val</span> topZ   = depth
+
+    <span class="cm">// 8 outer bevel corners + 4 inner top corners = 12 vertices for top
+    // For brevity, using simplified rectangular approach (no corner rounding)</span>
+    <span class="kw">return</span> floatArrayOf(
+        <span class="cm">// Top face — 4 vertices (inner quad, facing +Z, normal = 0,0,1)</span>
+        x+bx,    -(y+by),    topZ, <span class="num">0f</span>,<span class="num">0f</span>,<span class="num">1f</span>,  <span class="num">0f</span>,<span class="num">0f</span>,
+        x+w-bx, -(y+by),    topZ, <span class="num">0f</span>,<span class="num">0f</span>,<span class="num">1f</span>,  <span class="num">1f</span>,<span class="num">0f</span>,
+        x+w-bx, -(y+h-by), topZ, <span class="num">0f</span>,<span class="num">0f</span>,<span class="num">1f</span>,  <span class="num">1f</span>,<span class="num">1f</span>,
+        x+bx,    -(y+h-by), topZ, <span class="num">0f</span>,<span class="num">0f</span>,<span class="num">1f</span>,  <span class="num">0f</span>,<span class="num">1f</span>,
+
+        <span class="cm">// Front bevel face (bottom edge, facing -Y +Z at 45°)
+        // normal = normalize(0, -1, 1)</span>
+        x+bx,   -(y+h-by), topZ,    <span class="num">0f</span>,-<span class="num">0.707f</span>,<span class="num">0.707f</span>, <span class="num">0f</span>,<span class="num">1f</span>,
+        x+w-bx, -(y+h-by), topZ,    <span class="num">0f</span>,-<span class="num">0.707f</span>,<span class="num">0.707f</span>, <span class="num">1f</span>,<span class="num">1f</span>,
+        x+w-bx, -(y+h),    outerZ,  <span class="num">0f</span>,-<span class="num">0.707f</span>,<span class="num">0.707f</span>, <span class="num">1f</span>,<span class="num">0f</span>,
+        x+bx,   -(y+h),    outerZ,  <span class="num">0f</span>,-<span class="num">0.707f</span>,<span class="num">0.707f</span>, <span class="num">0f</span>,<span class="num">0f</span>
+        <span class="cm">// ... (repeat similar quads for left, right, top bevel faces)</span>
+        <span class="cm">// ... (add 4 side wall quads from outerZ down to z=0)</span>
+    )
+}</code></pre>
+
+<h3>Instanced Drawing for All Keys</h3>
+<p>A keyboard has 30–50 keys. Drawing each with a separate draw call is expensive. OpenGL ES 3.0's <strong>instanced drawing</strong> lets you draw all keys with a single API call, passing per-key data (position, color, pressed state) as instance attributes.</p>
+
+<pre><code><span class="cm">// Instanced drawing — send all key transforms as a per-instance VBO</span>
+<span class="cm">// instanceData: [x, y, width, height, r, g, b, isPressed] per key</span>
+
+<span class="kw">val</span> instanceCount = keyLayout.size
+<span class="kw">val</span> instanceData = <span class="ty">FloatBuffer</span>.<span class="fn">allocate</span>(instanceCount * <span class="num">8</span>)
+
+keyLayout.<span class="fn">forEachIndexed</span> { i, key ->
+    instanceData.<span class="fn">put</span>(floatArrayOf(
+        key.x, key.y, key.width, key.height,
+        key.color.red, key.color.green, key.color.blue,
+        <span class="kw">if</span> (key.isPressed) <span class="num">1f</span> <span class="kw">else</span> <span class="num">0f</span>
+    ))
+}
+instanceData.<span class="fn">rewind</span>()
+
+<span class="cm">// Upload instance data to GPU</span>
+GLES30.<span class="fn">glBindBuffer</span>(GLES30.GL_ARRAY_BUFFER, instanceVBO)
+GLES30.<span class="fn">glBufferData</span>(GLES30.GL_ARRAY_BUFFER,
+    instanceData.<span class="fn">capacity</span>() * <span class="num">4</span>, instanceData, GLES30.GL_DYNAMIC_DRAW)
+
+<span class="cm">// Draw all keys in one call</span>
+GLES30.<span class="fn">glDrawArraysInstanced</span>(
+    GLES30.GL_TRIANGLES, <span class="num">0</span>, vertexCountPerKey, instanceCount
+)</code></pre>
+</section>
+
+<!-- ─── SECTION 07 ─────────────────────────────── -->
+<section id="s07">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 07</span>
+  <h2>GLSL Shaders — Depth &amp; Bevel <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Complete GLSL ES shader pairs for bevel lighting, press animation, and material surface effects</p>
+</div>
+
+<p class="lead">The shader is where a 3D keyboard comes alive. These are production-ready GLSL ES 3.0 shaders that implement a convincing beveled key appearance using analytical lighting — no texture baking required.</p>
+
+<h3>Vertex Shader — Key Surface with Press Animation</h3>
+<pre><code><span class="cm">// vertex_key.glsl  (GLSL ES 3.0 — #version 300 es)</span>
+<span class="tg">#version 300 es</span>
+
+<span class="kw">in</span> <span class="ty">vec3</span> aPosition;   <span class="cm">// Key vertex position (model space)</span>
+<span class="kw">in</span> <span class="ty">vec3</span> aNormal;     <span class="cm">// Surface normal</span>
+<span class="kw">in</span> <span class="ty">vec2</span> aUV;         <span class="cm">// Texture coordinates</span>
+
+<span class="cm">// Per-instance attributes (set divisor = 1)</span>
+<span class="kw">in</span> <span class="ty">vec4</span> aKeyRect;     <span class="cm">// x, y, width, height (NDC)</span>
+<span class="kw">in</span> <span class="ty">vec3</span> aKeyColor;    <span class="cm">// R, G, B</span>
+<span class="kw">in</span> <span class="ty">float</span> aIsPressed;  <span class="cm">// 0.0 = normal, 1.0 = pressed</span>
+
+<span class="kw">uniform</span> <span class="ty">mat4</span>  uViewProjection;
+<span class="kw">uniform</span> <span class="ty">float</span> uTime;          <span class="cm">// Seconds since start (for animations)</span>
+
+<span class="kw">out</span> <span class="ty">vec3</span> vWorldNormal;
+<span class="kw">out</span> <span class="ty">vec3</span> vWorldPos;
+<span class="kw">out</span> <span class="ty">vec2</span> vUV;
+<span class="kw">out</span> <span class="ty">vec3</span> vColor;
+<span class="kw">out</span> <span class="ty">float</span> vPressAmt;
+
+<span class="kw">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Scale the unit key mesh to the actual key's rect dimensions</span>
+    <span class="ty">vec3</span> scaledPos = aPosition * <span class="ty">vec3</span>(aKeyRect.z, aKeyRect.w, <span class="num">1.0</span>);
+
+    <span class="cm">// Press animation: sink key 60% of depth when pressed</span>
+    <span class="ty">float</span> pressDepth = aIsPressed * <span class="num">-0.6</span>;
+    scaledPos.z += pressDepth;
+
+    <span class="cm">// Translate to key's screen position</span>
+    <span class="ty">vec3</span> worldPos = scaledPos + <span class="ty">vec3</span>(aKeyRect.xy, <span class="num">0.0</span>);
+
+    vWorldNormal = aNormal;
+    vWorldPos    = worldPos;
+    vUV          = aUV;
+    vColor       = aKeyColor;
+    vPressAmt    = aIsPressed;
+
+    <span class="fn">gl_Position</span> = uViewProjection * <span class="ty">vec4</span>(worldPos, <span class="num">1.0</span>);
+}</code></pre>
+
+<h3>Fragment Shader — Bevel Lighting + Material</h3>
+<pre><code><span class="cm">// fragment_key.glsl  (GLSL ES 3.0)</span>
+<span class="tg">#version 300 es</span>
+<span class="kw">precision</span> mediump <span class="ty">float</span>;
+
+<span class="kw">in</span> <span class="ty">vec3</span>  vWorldNormal;
+<span class="kw">in</span> <span class="ty">vec3</span>  vWorldPos;
+<span class="kw">in</span> <span class="ty">vec2</span>  vUV;
+<span class="kw">in</span> <span class="ty">vec3</span>  vColor;
+<span class="kw">in</span> <span class="ty">float</span> vPressAmt;
+
+<span class="kw">uniform</span> <span class="ty">vec3</span>  uLightDir;   <span class="cm">// Normalized, world space</span>
+<span class="kw">uniform</span> <span class="ty">vec3</span>  uLightColor;
+<span class="kw">uniform</span> <span class="ty">float</span> uRoughness;  <span class="cm">// 0=mirror 1=matte</span>
+<span class="kw">uniform</span> <span class="ty">float</span> uMetallic;   <span class="cm">// 0=plastic 1=metal</span>
+<span class="kw">uniform</span> <span class="ty">sampler2D</span> uNormalMap; <span class="cm">// Optional normal map</span>
+
+<span class="kw">out</span> <span class="ty">vec4</span> fragColor;
+
+<span class="cm">// Blinn-Phong lighting with specular highlight</span>
+<span class="ty">vec3</span> <span class="fn">blinnPhong</span>(<span class="ty">vec3</span> N, <span class="ty">vec3</span> L, <span class="ty">vec3</span> V, <span class="ty">vec3</span> diffColor) {
+    <span class="ty">float</span> NdotL    = <span class="fn">max</span>(<span class="fn">dot</span>(N, L), <span class="num">0.0</span>);
+    <span class="ty">vec3</span>  H        = <span class="fn">normalize</span>(L + V);
+    <span class="ty">float</span> specPow  = <span class="fn">mix</span>(<span class="num">8.0</span>, <span class="num">256.0</span>, <span class="num">1.0</span> - uRoughness);
+    <span class="ty">float</span> specular = <span class="fn">pow</span>(<span class="fn">max</span>(<span class="fn">dot</span>(N, H), <span class="num">0.0</span>), specPow);
+
+    <span class="ty">vec3</span> specColor = <span class="fn">mix</span>(<span class="ty">vec3</span>(<span class="num">1.0</span>), diffColor, uMetallic);
+    <span class="kw">return</span> diffColor * NdotL * uLightColor
+         + specColor * specular * uLightColor * (<span class="num">1.0</span> - uRoughness);
+}
+
+<span class="kw">void</span> <span class="fn">main</span>() {
+    <span class="ty">vec3</span>  N = <span class="fn">normalize</span>(vWorldNormal);
+    <span class="ty">vec3</span>  L = <span class="fn">normalize</span>(uLightDir);
+    <span class="ty">vec3</span>  V = <span class="ty">vec3</span>(<span class="num">0.0</span>, <span class="num">0.0</span>, <span class="num">1.0</span>); <span class="cm">// Camera direction (orthographic)</span>
+
+    <span class="cm">// Ambient occlusion approximation for bevel faces (darker when facing away)</span>
+    <span class="ty">float</span> ao = <span class="fn">mix</span>(<span class="num">0.6</span>, <span class="num">1.0</span>, <span class="fn">dot</span>(N, <span class="ty">vec3</span>(<span class="num">0.0</span>,<span class="num">0.0</span>,<span class="num">1.0</span>)) * <span class="num">0.5</span> + <span class="num">0.5</span>);
+
+    <span class="ty">vec3</span> lit = <span class="fn">blinnPhong</span>(N, L, V, vColor);
+
+    <span class="cm">// Darken on press — subtle shadow to reinforce physical metaphor</span>
+    <span class="ty">float</span> pressDim = <span class="num">1.0</span> - vPressAmt * <span class="num">0.18</span>;
+
+    fragColor = <span class="ty">vec4</span>(lit * ao * pressDim, <span class="num">1.0</span>);
+}</code></pre>
+
+<div class="callout callout-tip">
+  <span class="callout-icon">✓</span>
+  <div class="callout-body">
+    <strong>Use mediump precision in fragment shaders</strong>
+    <p>On mobile GPUs, <code>mediump float</code> (16-bit) is significantly faster than <code>highp</code> for fragment shaders. Keyboard lighting only needs ~3 decimal places of color precision. Reserve <code>highp</code> for vertex shaders where position math requires full 32-bit accuracy to prevent z-fighting.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 08 ─────────────────────────────── -->
+<section id="s08">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 08</span>
+  <h2>Lighting Models for Keys <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Choosing and implementing the right lighting model — ambient, directional, IBL, and shadow approximation</p>
+</div>
+
+<p class="lead">Lighting transforms flat polygons into convincing surfaces. For a keyboard, the goal is not photorealism but <strong>perceptual depth</strong>: the viewer should intuitively understand which surface is the top face, which is the bevel, and which is the side wall — without needing to think about it.</p>
+
+<h3>Lighting Model Comparison</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Model</th><th>GPU Cost</th><th>Realism</th><th>Best For</th></tr></thead>
+<tbody>
+<tr><td><strong>Ambient only</strong></td><td>Negligible</td><td>Flat / 2D</td><td>Not useful alone — but always add as base term</td></tr>
+<tr><td><strong>Lambertian diffuse</strong></td><td>Very Low</td><td>Matte surface depth</td><td>Rubber / plastic keys, dark themes</td></tr>
+<tr><td><strong>Blinn-Phong</strong></td><td>Low</td><td>Good specular highlights</td><td>Glossy plastic, light themes, most keyboards</td></tr>
+<tr><td><strong>Physically Based (PBR)</strong></td><td>Medium</td><td>Metal, glass, rubber accurate</td><td>Premium keyboards; use Filament (§09)</td></tr>
+<tr><td><strong>IBL (Image-Based Lighting)</strong></td><td>Medium–High</td><td>Environment reflection</td><td>Metallic / glass keys with Filament</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Recommended Lighting Setup</h3>
+<p>For most keyboards, a <strong>three-light setup</strong> works well: one primary directional light from upper-left (simulating ambient room light), one soft fill from upper-right (prevents pure black shadows), and a subtle rim light from behind to define key edges. All three can be hardcoded as uniform vectors — no dynamic shadow maps required.</p>
+
+<pre><code><span class="cm">// Upload lighting uniforms from Kotlin (called once per frame or on theme change)</span>
+<span class="kw">fun</span> <span class="fn">setLighting</span>(program: <span class="ty">Int</span>, theme: <span class="ty">KeyboardTheme</span>) {
+    <span class="cm">// Primary: upper-left directional (60% contribution)</span>
+    GLES30.<span class="fn">glUniform3f</span>(
+        GLES30.<span class="fn">glGetUniformLocation</span>(program, <span class="str">"uLightDir"</span>),
+        -<span class="num">0.5f</span>, <span class="num">0.7f</span>, <span class="num">0.6f</span>  <span class="cm">// normalize(vec3(-0.5, 0.7, 0.6))</span>
+    )
+    GLES30.<span class="fn">glUniform3f</span>(
+        GLES30.<span class="fn">glGetUniformLocation</span>(program, <span class="str">"uLightColor"</span>),
+        theme.lightR, theme.lightG, theme.lightB
+    )
+    GLES30.<span class="fn">glUniform1f</span>(
+        GLES30.<span class="fn">glGetUniformLocation</span>(program, <span class="str">"uRoughness"</span>),
+        theme.keyRoughness  <span class="cm">// e.g. 0.4 for glossy, 0.85 for matte</span>
+    )
+    GLES30.<span class="fn">glUniform1f</span>(
+        GLES30.<span class="fn">glGetUniformLocation</span>(program, <span class="str">"uMetallic"</span>),
+        theme.keyMetallic   <span class="cm">// e.g. 0.0 for plastic, 1.0 for chrome</span>
+    )
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 09 ─────────────────────────────── -->
+<section id="s09">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 09</span>
+  <h2>Filament Integration <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Embedding Google's Filament PBR engine inside an IME, Gradle setup, SurfaceView bridge, and engine lifecycle</p>
+</div>
+
+<p class="lead"><a href="https://github.com/google/filament" class="ext">Filament</a> is Google's open-source, real-time physically based rendering engine. It targets OpenGL ES 3.x class GPUs and is the same engine used internally in Android Studio's design preview and the AR Sceneform SDK. It provides a full PBR material system, IBL lighting, shadow mapping, and a high-level scene graph — all in a library that loads quickly on mobile devices.</p>
+
+<h3>Gradle Dependencies</h3>
+<pre><code><span class="cm">// build.gradle.kts (Module) — Filament for Android</span>
+dependencies {
+    <span class="kw">val</span> filamentVersion = <span class="str">"1.54.0"</span> <span class="cm">// Latest stable as of 2026 Q1</span>
+
+    <span class="cm">// Core Filament runtime</span>
+    implementation(<span class="str">"com.google.android.filament:filament-android:$filamentVersion"</span>)
+
+    <span class="cm">// High-level utils (ModelViewer, IBL etc.)</span>
+    implementation(<span class="str">"com.google.android.filament:filament-utils-android:$filamentVersion"</span>)
+
+    <span class="cm">// glTF 2.0 asset loading (for .glb key models)</span>
+    implementation(<span class="str">"com.google.android.filament:gltfio-android:$filamentVersion"</span>)
+
+    <span class="cm">// Material compiler at runtime (optional — use if generating materials on device)</span>
+    <span class="cm">// implementation("com.google.android.filament:filamat-android:$filamentVersion")</span>
+}</code></pre>
+
+<h3>Filament Engine Lifecycle in IME</h3>
+<pre><code><span class="kw">class</span> <span class="ty">FilamentKeyboardService</span> : <span class="ty">InputMethodService</span>() {
+
+    <span class="kw">private</span> <span class="kw">lateinit var</span> engine: <span class="ty">Engine</span>
+    <span class="kw">private</span> <span class="kw">lateinit var</span> renderer: <span class="ty">Renderer</span>
+    <span class="kw">private</span> <span class="kw">lateinit var</span> scene: <span class="ty">Scene</span>
+    <span class="kw">private</span> <span class="kw">lateinit var</span> view: <span class="ty">View</span>
+    <span class="kw">private</span> <span class="kw">lateinit var</span> camera: <span class="ty">Camera</span>
+    <span class="kw">private</span> <span class="kw">var</span>       swapChain: <span class="ty">SwapChain</span>? = <span class="kw">null</span>
+    <span class="kw">private</span> <span class="kw">var</span>       surfaceView: <span class="ty">SurfaceView</span>? = <span class="kw">null</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreate</span>() {
+        <span class="kw">super</span>.<span class="fn">onCreate</span>()
+        <span class="cm">// Initialize Filament engine once — lives for the service's lifetime</span>
+        engine   = <span class="ty">Engine</span>.<span class="fn">create</span>()
+        renderer = engine.<span class="fn">createRenderer</span>()
+        scene    = engine.<span class="fn">createScene</span>()
+        view     = engine.<span class="fn">createView</span>()
+        camera   = engine.<span class="fn">createCamera</span>(engine.<span class="fn">entityManager</span>.<span class="fn">create</span>())
+
+        view.scene  = scene
+        view.camera = camera
+        <span class="fn">setupOrthographicCamera</span>()
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+        <span class="kw">val</span> sv = <span class="ty">SurfaceView</span>(<span class="kw">this</span>)
+        surfaceView = sv
+
+        <span class="cm">// SurfaceView callback — create SwapChain when surface is ready</span>
+        sv.holder.<span class="fn">addCallback</span>(<span class="kw">object</span> : <span class="ty">SurfaceHolder.Callback</span> {
+            <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">surfaceCreated</span>(holder: <span class="ty">SurfaceHolder</span>) {
+                swapChain = engine.<span class="fn">createSwapChain</span>(holder.surface)
+                <span class="fn">buildKeyScene</span>()
+            }
+            <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">surfaceChanged</span>(h: <span class="ty">SurfaceHolder</span>, fmt: <span class="ty">Int</span>, w: <span class="ty">Int</span>, ht: <span class="ty">Int</span>) {
+                view.<span class="fn">viewport</span> = <span class="ty">Viewport</span>(<span class="num">0</span>, <span class="num">0</span>, w, ht)
+                <span class="fn">setupOrthographicCamera</span>(w.<span class="fn">toFloat</span>(), ht.<span class="fn">toFloat</span>())
+            }
+            <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">surfaceDestroyed</span>(h: <span class="ty">SurfaceHolder</span>) {
+                swapChain?.<span class="kw">let</span> { engine.<span class="fn">destroySwapChain</span>(it) }
+                swapChain = <span class="kw">null</span>
+            }
+        })
+        <span class="kw">return</span> sv
+    }
+
+    <span class="kw">private</span> <span class="kw">fun</span> <span class="fn">setupOrthographicCamera</span>(w: <span class="ty">Float</span> = <span class="num">1080f</span>, h: <span class="ty">Float</span> = <span class="num">400f</span>) {
+        <span class="cm">// Orthographic projection maps pixel coords directly to NDC</span>
+        camera.<span class="fn">setProjection</span>(
+            <span class="ty">Camera.Projection.ORTHO</span>,
+            <span class="num">0.0</span>, w.<span class="fn">toDouble</span>(), h.<span class="fn">toDouble</span>(), <span class="num">0.0</span>, <span class="num">0.0</span>, <span class="num">10.0</span>
+        )
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDestroy</span>() {
+        swapChain?.<span class="kw">let</span> { engine.<span class="fn">destroySwapChain</span>(it) }
+        engine.<span class="fn">destroyRenderer</span>(renderer)
+        engine.<span class="fn">destroyScene</span>(scene)
+        engine.<span class="fn">destroyView</span>(view)
+        engine.<span class="fn">destroyCameraComponent</span>(camera.<span class="fn">entity</span>)
+        engine.<span class="fn">destroy</span>()
+        <span class="kw">super</span>.<span class="fn">onDestroy</span>()
+    }
+}</code></pre>
+
+<div class="callout callout-info">
+  <span class="callout-icon">ℹ️</span>
+  <div class="callout-body">
+    <strong>Filament Engine vs. Renderer vs. View</strong>
+    <p>In Filament's architecture, the <strong>Engine</strong> is the factory and resource manager (one per process), the <strong>Renderer</strong> handles draw calls and frame timing, the <strong>View</strong> is a camera + scene pair that defines what to render and how, and the <strong>SwapChain</strong> is the surface being rendered into. Create the engine once in <code>onCreate()</code> but recreate the SwapChain every time the SurfaceView's surface is created/destroyed.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 10 ─────────────────────────────── -->
+<section id="s10">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 10</span>
+  <h2>PBR Materials on Keys <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Authoring Filament materials (.filamat) for metallic, rubber, glass, and custom key surfaces</p>
+</div>
+
+<p class="lead">Filament's <strong>material system</strong> uses precompiled <code>.filamat</code> binary files that define a surface's physical properties. Each key can have a different material — metal for action keys, matte rubber for letter keys, glass for the spacebar. Materials are authored in a JSON-like <code>.mat</code> language and compiled offline with Filament's <code>matc</code> tool.</p>
+
+<h3>Material Source Files (.mat)</h3>
+<pre><code><span class="cm">// key_standard.mat — Standard glossy plastic key material</span>
+material {
+    name : <span class="str">"KeyPlastic"</span>,
+    shadingModel : lit,
+    blending : opaque,
+    parameters : [
+        { type : <span class="ty">float3</span>, name : baseColor },
+        { type : <span class="ty">float</span>,  name : roughness },
+        { type : <span class="ty">float</span>,  name : metallic  },
+        { type : <span class="ty">float</span>,  name : pressAmt  }
+    ]
+}
+
+fragment {
+    <span class="kw">void</span> <span class="fn">material</span>(<span class="kw">inout</span> MaterialInputs material) {
+        <span class="fn">prepareMaterial</span>(material);
+
+        <span class="cm">// Slightly darken color on press</span>
+        <span class="ty">float3</span> color = materialParams.baseColor
+                     * (<span class="num">1.0</span> - materialParams.pressAmt * <span class="num">0.15</span>);
+
+        material.baseColor  = <span class="ty">float4</span>(color, <span class="num">1.0</span>);
+        material.roughness  = materialParams.roughness;
+        material.metallic   = materialParams.metallic;
+        material.reflectance = <span class="num">0.5</span>; <span class="cm">// Standard dielectric</span>
+    }
+}</code></pre>
+
+<pre><code><span class="cm">// key_metal.mat — Chrome / metallic action key</span>
+material {
+    name : <span class="str">"KeyMetal"</span>,
+    shadingModel : lit,
+    parameters : [
+        { type : <span class="ty">float3</span>, name : baseColor },
+        { type : <span class="ty">float</span>,  name : roughness }
+    ]
+}
+
+fragment {
+    <span class="kw">void</span> <span class="fn">material</span>(<span class="kw">inout</span> MaterialInputs material) {
+        <span class="fn">prepareMaterial</span>(material);
+        material.baseColor  = <span class="ty">float4</span>(materialParams.baseColor, <span class="num">1.0</span>);
+        material.metallic   = <span class="num">1.0</span>;   <span class="cm">// Full metal</span>
+        material.roughness  = materialParams.roughness;
+        material.reflectance = <span class="num">0.9</span>; <span class="cm">// High reflectance for chrome</span>
+    }
+}</code></pre>
+
+<h3>Compiling with matc</h3>
+<pre><code><span class="cm"># Run at build time (add to your build.gradle.kts as an exec task)</span>
+<span class="cm"># matc ships with Filament — download from github.com/google/filament/releases</span>
+
+matc -a opengl -p mobile -o src/main/assets/key_standard.filamat key_standard.mat
+matc -a opengl -p mobile -o src/main/assets/key_metal.filamat key_metal.mat</code></pre>
+
+<h3>Loading and Assigning Materials in Kotlin</h3>
+<pre><code><span class="kw">fun</span> <span class="fn">loadKeyMaterial</span>(engine: <span class="ty">Engine</span>, assetName: <span class="ty">String</span>): <span class="ty">MaterialInstance</span> {
+    <span class="kw">val</span> bytes = assets.<span class="fn">open</span>(assetName).<span class="fn">readBytes</span>()
+    <span class="kw">val</span> material = <span class="ty">Material</span>.<span class="fn">Builder</span>()
+        .<span class="fn">payload</span>(bytes, bytes.size)
+        .<span class="fn">build</span>(engine)
+    <span class="kw">return</span> material.<span class="fn">createInstance</span>()
+}
+
+<span class="cm">// For each key, set material parameters and assign to renderable</span>
+<span class="kw">fun</span> <span class="fn">applyMaterialToKey</span>(
+    engine: <span class="ty">Engine</span>,
+    renderable: <span class="ty">Int</span>,
+    materialInstance: <span class="ty">MaterialInstance</span>,
+    keyColor: <span class="ty">Color</span>,
+    isPressed: <span class="ty">Boolean</span>
+) {
+    materialInstance.<span class="fn">setParameter</span>(<span class="str">"baseColor"</span>,
+        <span class="ty">RgbType.SRGB</span>, keyColor.red, keyColor.green, keyColor.blue)
+    materialInstance.<span class="fn">setParameter</span>(<span class="str">"roughness"</span>, <span class="num">0.35f</span>)
+    materialInstance.<span class="fn">setParameter</span>(<span class="str">"metallic"</span>,  <span class="num">0.0f</span>)
+    materialInstance.<span class="fn">setParameter</span>(<span class="str">"pressAmt"</span>,  <span class="kw">if</span> (isPressed) <span class="num">1.0f</span> <span class="kw">else</span> <span class="num">0.0f</span>)
+
+    <span class="ty">RenderableManager</span>.<span class="fn">Builder</span>(<span class="num">1</span>)
+        .<span class="fn">material</span>(<span class="num">0</span>, materialInstance)
+        .<span class="fn">build</span>(engine, renderable)
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 11 ─────────────────────────────── -->
+<section id="s11">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 11</span>
+  <h2>SceneView &amp; Compose Bridge <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Using SceneView (Filament + ARCore + Compose) as a higher-level alternative to raw Filament API calls</p>
+</div>
+
+<p class="lead"><a href="https://github.com/SceneView/sceneview-android" class="ext">SceneView</a> is an open-source library that wraps Google Filament with a Jetpack Compose–native API, including a <code>rememberEngine()</code> composable, collision system, and glTF model loader. If your team prefers Compose over raw GL, SceneView dramatically reduces the boilerplate of Sections 09 and 10.</p>
+
+<h3>Gradle Dependency</h3>
+<pre><code>dependencies {
+    <span class="cm">// SceneView — Filament + Compose bridge</span>
+    implementation(<span class="str">"io.github.sceneview:sceneview:2.2.1"</span>)
+    <span class="cm">// AR variant (ARCore): io.github.sceneview:arsceneview:2.2.1</span>
+}</code></pre>
+
+<h3>3D Key Scene in Compose (inside ComposeView IME)</h3>
+<pre><code><span class="an">@Composable</span>
+<span class="kw">fun</span> <span class="fn">FilamentKeyboard</span>(
+    keyLayout: <span class="ty">List</span>&lt;<span class="ty">KeyDef</span>&gt;,
+    pressedKeys: <span class="ty">Set</span>&lt;<span class="ty">Int</span>&gt;
+) {
+    <span class="kw">val</span> engine          = <span class="fn">rememberEngine</span>()
+    <span class="kw">val</span> modelLoader     = <span class="fn">rememberModelLoader</span>(engine)
+    <span class="kw">val</span> materialLoader  = <span class="fn">rememberMaterialLoader</span>(engine)
+    <span class="kw">val</span> environmentLoader = <span class="fn">rememberEnvironmentLoader</span>(engine)
+
+    <span class="cm">// Load key glTF model once and reuse for all keys</span>
+    <span class="kw">val</span> keyModel by <span class="fn">remember</span> { <span class="fn">mutableStateOf</span>(<span class="kw">null</span>&lt;<span class="ty">ModelInstance</span>&gt;()) }
+
+    <span class="ty">Scene</span>(
+        modifier = <span class="ty">Modifier</span>.<span class="fn">fillMaxWidth</span>().<span class="fn">height</span>(<span class="num">220</span>.dp),
+        engine = engine,
+        modelLoader = modelLoader,
+        materialLoader = materialLoader,
+        environmentLoader = environmentLoader,
+        environment = <span class="fn">rememberEnvironment</span>(environmentLoader) {
+            environmentLoader.<span class="fn">createHDREnvironment</span>(
+                assetFileLocation = <span class="str">"environments/studio_small.hdr"</span>
+            )!!
+        },
+        mainLightNode = <span class="fn">rememberMainLightNode</span>(engine) {
+            intensity = <span class="num">80_000.0f</span>
+        },
+        childNodes = <span class="fn">rememberNodes</span> {
+            keyLayout.<span class="fn">mapIndexed</span> { i, key ->
+                <span class="ty">ModelNode</span>(
+                    modelInstance = modelLoader.<span class="fn">createModelInstance</span>(
+                        assetFileLocation = <span class="str">"models/key_unit.glb"</span>
+                    ),
+                    scaleToUnits = <span class="num">0.9f</span>
+                ).<span class="fn">apply</span> {
+                    position = <span class="ty">Position</span>(
+                        x = key.centerX.<span class="fn">toFloat</span>(),
+                        y = <span class="num">0.0f</span>,
+                        z = <span class="kw">if</span> (i <span class="kw">in</span> pressedKeys) -<span class="num">0.15f</span> <span class="kw">else</span> <span class="num">0.0f</span>
+                    )
+                }
+            }
+        }
+    )
+}</code></pre>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>ComposeView in IME requires manual Lifecycle wiring</strong>
+    <p>A <code>ComposeView</code> inside <code>onCreateInputView()</code> must be wired to a <code>LifecycleOwner</code> and <code>SavedStateRegistryOwner</code> via <code>ViewTreeLifecycleOwner.set()</code> and <code>ViewTreeSavedStateRegistryOwner.set()</code>. Without this, composables that use <code>rememberCoroutineScope</code>, <code>LaunchedEffect</code>, or any lifecycle-aware state will crash or silently fail. See <a href="https://medium.com/@maksymkoval1/implementation-of-a-custom-soft-keyboard-in-android-using-compose-b8522d7ed9cd" class="ext">this detailed Compose-in-IME tutorial</a> for the complete wiring pattern.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 12 ─────────────────────────────── -->
+<section id="s12">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 12</span>
+  <h2>IBL Environment Lighting <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Image-based lighting for metallic and glass keys — HDR environment maps, KTX packaging, and tone mapping</p>
+</div>
+
+<p class="lead">Image-based lighting (IBL) uses a 360° HDR environment map to provide realistic ambient and specular reflections. On metallic or glass key materials, IBL transforms flat-looking geometry into convincing mirror-like surfaces that reflect the environment. With Filament, IBL setup requires a pre-filtered KTX file generated offline.</p>
+
+<h3>Generating KTX Environment Maps</h3>
+<pre><code><span class="cm"># Step 1: Download Filament tools from github.com/google/filament/releases
+# Step 2: Use cmgen to convert an HDR panorama to Filament's KTX format</span>
+
+<span class="cm"># Download a free HDR from polyhaven.com (e.g., studio_small_09.hdr)</span>
+cmgen \
+  --format=ktx \
+  --size=256 \
+  --deploy=./src/main/assets/environments/ \
+  studio_small_09.hdr
+
+<span class="cm"># Output: ./assets/environments/studio_small_09/
+#   studio_small_09_ibl.ktx   (specular irradiance, pre-filtered mips)
+#   studio_small_09_skybox.ktx (skybox cubemap)</span></code></pre>
+
+<h3>Loading IBL in Kotlin</h3>
+<pre><code><span class="kw">fun</span> <span class="fn">loadEnvironment</span>(engine: <span class="ty">Engine</span>, assetPrefix: <span class="ty">String</span>): <span class="ty">IndirectLight</span> {
+    <span class="kw">val</span> iblBuffer = assets.<span class="fn">open</span>(<span class="str">"$assetPrefix_ibl.ktx"</span>).<span class="fn">readBytes</span>()
+        .<span class="kw">let</span> { <span class="ty">ByteBuffer</span>.<span class="fn">wrap</span>(it) }
+
+    <span class="kw">val</span> ibl = <span class="ty">KtxLoader</span>.<span class="fn">createIndirectLight</span>(engine, iblBuffer,
+        <span class="ty">KtxLoader.Options</span>())
+
+    ibl.intensity = <span class="num">30_000f</span> <span class="cm">// Tuned for keyboard size</span>
+    <span class="kw">return</span> ibl
+}</code></pre>
+
+<div class="callout callout-tip">
+  <span class="callout-icon">✓</span>
+  <div class="callout-body">
+    <strong>Match IBL intensity to light theme / dark theme</strong>
+    <p>On light themes, IBL intensity of 30,000–50,000 produces realistic metallic keys. On dark themes, reduce to 10,000–20,000 to prevent overexposure. Expose this as a theme token (<code>theme.iblIntensity</code>) so users with custom backgrounds can tune it.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 13 ─────────────────────────────── -->
+<section id="s13">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 13</span>
+  <h2>Canvas + Hardware Acceleration <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Achieving pseudo-3D depth, custom drawables, and hardware-layer compositing without any OpenGL code</p>
+</div>
+
+<p class="lead">Not every 3D effect requires writing shaders. Android's hardware-accelerated Canvas, combined with carefully crafted drawables, can produce convincing depth through <strong>layered shadows, gradient highlights, and strategic compositing</strong>. This approach is accessible to every Android developer and runs on all API 21+ devices with no special permissions.</p>
+
+<h3>Hardware-Accelerated Canvas Layers</h3>
+<pre><code><span class="kw">class</span> <span class="ty">Pseudo3DKeyView</span>(context: <span class="ty">Context</span>) : <span class="ty">View</span>(context) {
+
+    <span class="kw">private</span> <span class="kw">val</span> shadowPaint = <span class="ty">Paint</span>(<span class="ty">Paint.ANTI_ALIAS_FLAG</span>).<span class="fn">apply</span> {
+        color = <span class="ty">Color</span>.<span class="fn">argb</span>(<span class="num">60</span>, <span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span>)
+        maskFilter = <span class="ty">BlurMaskFilter</span>(<span class="num">8f</span>, <span class="ty">BlurMaskFilter.Blur.NORMAL</span>)
+    }
+    <span class="kw">private</span> <span class="kw">val</span> keyPaint = <span class="ty">Paint</span>(<span class="ty">Paint.ANTI_ALIAS_FLAG</span>)
+    <span class="kw">private</span> <span class="kw">val</span> highlightPaint = <span class="ty">Paint</span>(<span class="ty">Paint.ANTI_ALIAS_FLAG</span>).<span class="fn">apply</span> {
+        shader = null <span class="cm">// Assigned per-draw with LinearGradient</span>
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDraw</span>(canvas: <span class="ty">Canvas</span>) {
+        <span class="kw">val</span> rect = <span class="ty">RectF</span>(<span class="num">8f</span>, <span class="num">8f</span>, width - <span class="num">8f</span>, height - <span class="num">8f</span>)
+
+        <span class="cm">// 1. Drop shadow (draw before key body)</span>
+        <span class="kw">val</span> shadowRect = <span class="ty">RectF</span>(rect.left + <span class="num">2f</span>, rect.top + <span class="num">4f</span>,
+                                rect.right + <span class="num">2f</span>, rect.bottom + <span class="num">4f</span>)
+        canvas.<span class="fn">drawRoundRect</span>(shadowRect, <span class="num">8f</span>, <span class="num">8f</span>, shadowPaint)
+
+        <span class="cm">// 2. Key body with flat color</span>
+        keyPaint.color = keyColor
+        canvas.<span class="fn">drawRoundRect</span>(rect, <span class="num">8f</span>, <span class="num">8f</span>, keyPaint)
+
+        <span class="cm">// 3. Gradient highlight simulating curved top surface
+        //    Top half: lighter (catching top light)
+        //    Bottom half: darker (shadow in lower bevel)</span>
+        highlightPaint.shader = <span class="ty">LinearGradient</span>(
+            rect.left, rect.top, rect.left, rect.bottom,
+            intArrayOf(
+                <span class="ty">Color</span>.<span class="fn">argb</span>(<span class="num">80</span>,  <span class="num">255</span>, <span class="num">255</span>, <span class="num">255</span>),  <span class="cm">// highlight</span>
+                <span class="ty">Color</span>.<span class="fn">argb</span>(<span class="num">0</span>,   <span class="num">255</span>, <span class="num">255</span>, <span class="num">255</span>),  <span class="cm">// fade out</span>
+                <span class="ty">Color</span>.<span class="fn">argb</span>(<span class="num">40</span>,  <span class="num">0</span>,   <span class="num">0</span>,   <span class="num">0</span>),    <span class="cm">// shadow</span>
+            ),
+            floatArrayOf(<span class="num">0f</span>, <span class="num">0.5f</span>, <span class="num">1f</span>),
+            <span class="ty">Shader.TileMode.CLAMP</span>
+        )
+        canvas.<span class="fn">drawRoundRect</span>(rect, <span class="num">8f</span>, <span class="num">8f</span>, highlightPaint)
+
+        <span class="cm">// 4. Key label via TextPaint</span>
+        <span class="fn">drawLabel</span>(canvas, rect)
+    }
+}</code></pre>
+
+<h3>Hardware Layer for Animated Keys</h3>
+<p>For animated keys (ripple on press, glow on hover), use <code>setLayerType(LAYER_TYPE_HARDWARE, null)</code>. This caches the view's rendered output in a GPU texture, making subsequent redraws (alpha fade, translation) GPU-only operations with near-zero CPU cost.</p>
+
+<pre><code><span class="cm">// Enable hardware layer for a key that will be animated</span>
+keyView.<span class="fn">setLayerType</span>(<span class="ty">View.LAYER_TYPE_HARDWARE</span>, <span class="kw">null</span>)
+
+<span class="cm">// Press animation — GPU-only translation, no redraw needed</span>
+<span class="ty">ObjectAnimator</span>.<span class="fn">ofFloat</span>(keyView, <span class="str">"translationY"</span>, <span class="num">0f</span>, <span class="num">2.5f</span>).<span class="fn">apply</span> {
+    duration = <span class="num">60</span>
+    interpolator = <span class="ty">AccelerateInterpolator</span>()
+    <span class="fn">start</span>()
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 14 ─────────────────────────────── -->
+<section id="s14">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 14</span>
+  <h2>ComposeUI Shader Effects — AGSL <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Android Graphics Shading Language (AGSL) in Jetpack Compose: animated gradients, noise textures, blur, and distortion on key surfaces</p>
+</div>
+
+<p class="lead">Android 13 (API 33) introduced <strong>AGSL</strong> — Android Graphics Shading Language — a shader dialect similar to GLSL that runs on Android's 2D rendering pipeline. In Jetpack Compose, AGSL shaders are applied via <code>ShaderBrush</code>, enabling effects like animated noise, neon glow, refraction, and liquid metal key surfaces — all without leaving Compose.</p>
+
+<h3>Animated Noise Key Background</h3>
+<pre><code><span class="kw">val</span> animatedNoiseShader = remember {
+    <span class="ty">RuntimeShader</span>("""
+        <span class="kw">uniform</span> <span class="ty">float2</span>  iResolution;
+        <span class="kw">uniform</span> <span class="ty">float</span>   iTime;
+        <span class="kw">uniform</span> <span class="ty">float3</span>  iBaseColor;
+
+        <span class="cm">// Classic 2D value noise</span>
+        <span class="ty">float</span> <span class="fn">hash</span>(<span class="ty">float2</span> p) {
+            <span class="kw">return</span> <span class="fn">fract</span>(<span class="fn">sin</span>(<span class="fn">dot</span>(p, <span class="ty">float2</span>(<span class="num">127.1</span>, <span class="num">311.7</span>))) * <span class="num">43758.5453</span>);
+        }
+        <span class="ty">float</span> <span class="fn">noise</span>(<span class="ty">float2</span> p) {
+            <span class="ty">float2</span> i = <span class="fn">floor</span>(p);
+            <span class="ty">float2</span> f = <span class="fn">fract</span>(p);
+            f = f*f*(<span class="num">3.0</span> - <span class="num">2.0</span>*f); <span class="cm">// Smoothstep</span>
+            <span class="kw">return</span> <span class="fn">mix</span>(
+                <span class="fn">mix</span>(<span class="fn">hash</span>(i),         <span class="fn">hash</span>(i + <span class="ty">float2</span>(<span class="num">1</span>,<span class="num">0</span>)), f.x),
+                <span class="fn">mix</span>(<span class="fn">hash</span>(i+<span class="ty">float2</span>(<span class="num">0</span>,<span class="num">1</span>)), <span class="fn">hash</span>(i + <span class="ty">float2</span>(<span class="num">1</span>,<span class="num">1</span>)), f.x),
+                f.y
+            );
+        }
+
+        <span class="ty">float4</span> <span class="fn">main</span>(<span class="ty">float2</span> fragCoord) {
+            <span class="ty">float2</span> uv  = fragCoord / iResolution;
+            <span class="cm">// Animate noise over time for a shimmering effect</span>
+            <span class="ty">float</span>  n   = <span class="fn">noise</span>(uv * <span class="num">6.0</span> + <span class="ty">float2</span>(iTime * <span class="num">0.4</span>, <span class="num">0.0</span>));
+            <span class="ty">float3</span> col = iBaseColor + n * <span class="num">0.06</span>; <span class="cm">// Subtle surface variation</span>
+            <span class="kw">return</span> <span class="ty">float4</span>(col, <span class="num">1.0</span>);
+        }
+    """.trimIndent())
+}
+
+<span class="kw">val</span> time by <span class="fn">produceState</span>(<span class="num">0f</span>) {
+    <span class="kw">while</span> (<span class="kw">true</span>) {
+        <span class="fn">withFrameNanos</span> { t -> value = t / <span class="num">1_000_000_000f</span> }
+    }
+}
+
+animatedNoiseShader.<span class="fn">setFloatUniform</span>(<span class="str">"iTime"</span>, time)
+animatedNoiseShader.<span class="fn">setFloatUniform</span>(<span class="str">"iBaseColor"</span>, <span class="num">0.2f</span>, <span class="num">0.3f</span>, <span class="num">0.8f</span>)
+
+<span class="ty">Box</span>(modifier = <span class="ty">Modifier</span>
+    .<span class="fn">background</span>(<span class="ty">ShaderBrush</span>(animatedNoiseShader))
+)</code></pre>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>AGSL requires API 33 — gate carefully</strong>
+    <p><code>RuntimeShader</code> and <code>ShaderBrush</code> are only available from Android 13 (API 33). Always check <code>Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU</code> before creating a <code>RuntimeShader</code>, and provide a plain gradient fallback for older devices. Never let an AGSL path reach devices running API 30–32.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 15 ─────────────────────────────── -->
+<section id="s15">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 15</span>
+  <h2>TextureView Overlay Techniques <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Using TextureView to layer live video, camera feeds, or OpenGL output behind a Canvas key layer</p>
+</div>
+
+<p class="lead">A <code>TextureView</code> renders into an Android <code>SurfaceTexture</code>, which can be drawn anywhere in the View hierarchy — including <em>underneath</em> a Canvas key layer. This makes it possible to have a <strong>live video background</strong>, a camera passthrough, or an OpenGL render visible behind your keyboard keys.</p>
+
+<h3>Architecture: TextureView under Canvas Keys</h3>
+<pre><code><span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+    <span class="cm">// FrameLayout: TextureView (background) + KeyboardCanvas (foreground)</span>
+    <span class="kw">val</span> root = <span class="ty">FrameLayout</span>(<span class="kw">this</span>)
+
+    <span class="cm">// 1. TextureView — live 3D/video background</span>
+    <span class="kw">val</span> textureView = <span class="ty">TextureView</span>(<span class="kw">this</span>).<span class="fn">apply</span> {
+        <span class="fn">setOpaque</span>(<span class="kw">false</span>)  <span class="cm">// Transparent so keys are visible on top</span>
+        <span class="fn">surfaceTextureListener</span> = backgroundSurfaceListener
+    }
+
+    <span class="cm">// 2. Canvas keyboard layer (transparent background)</span>
+    <span class="kw">val</span> keyCanvas = <span class="ty">KeyboardCanvasView</span>(<span class="kw">this</span>).<span class="fn">apply</span> {
+        <span class="fn">setBackgroundColor</span>(<span class="ty">Color.TRANSPARENT</span>)
+    }
+
+    root.<span class="fn">addView</span>(textureView, <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>,
+                               <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>)
+    root.<span class="fn">addView</span>(keyCanvas,   <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>,
+                               <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>)
+    <span class="kw">return</span> root
+}
+
+<span class="kw">private</span> <span class="kw">val</span> backgroundSurfaceListener = <span class="kw">object</span> : <span class="ty">TextureView.SurfaceTextureListener</span> {
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceTextureAvailable</span>(st: <span class="ty">SurfaceTexture</span>, w: <span class="ty">Int</span>, h: <span class="ty">Int</span>) {
+        <span class="cm">// Start OpenGL render loop targeting this surface</span>
+        backgroundRenderer.<span class="fn">start</span>(<span class="ty">Surface</span>(st), w, h)
+    }
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceTextureDestroyed</span>(st: <span class="ty">SurfaceTexture</span>): <span class="ty">Boolean</span> {
+        backgroundRenderer.<span class="fn">stop</span>(); <span class="kw">return</span> <span class="kw">true</span>
+    }
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceTextureSizeChanged</span>(st: <span class="ty">SurfaceTexture</span>, w: <span class="ty">Int</span>, h: <span class="ty">Int</span>) {}
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onSurfaceTextureUpdated</span>(st: <span class="ty">SurfaceTexture</span>) {}
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 16 ─────────────────────────────── -->
+<section id="s16">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 16</span>
+  <h2>Particle &amp; Ripple Systems <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Per-keystroke particle effects: sparks, confetti, ink splatter, ripples — GPU-driven particle simulation</p>
+</div>
+
+<p class="lead">Particle effects on keystroke are one of the most emotionally engaging customization features available in keyboards. Done well (subtle, fast, appropriate to theme), they delight users. Done poorly (too large, too slow, battery-hungry), they annoy. This section provides complete systems for four particle effects at production quality.</p>
+
+<h3>Ripple Effect — Canvas (Beginner Path)</h3>
+<pre><code><span class="kw">data class</span> <span class="ty">Ripple</span>(<span class="kw">var</span> x: <span class="ty">Float</span>, <span class="kw">var</span> y: <span class="ty">Float</span>, <span class="kw">var</span> progress: <span class="ty">Float</span> = <span class="num">0f</span>)
+
+<span class="kw">class</span> <span class="ty">RippleCanvasOverlay</span>(context: <span class="ty">Context</span>) : <span class="ty">View</span>(context) {
+    <span class="kw">private</span> <span class="kw">val</span> ripples = <span class="fn">mutableListOf</span>&lt;<span class="ty">Ripple</span>&gt;()
+    <span class="kw">private</span> <span class="kw">val</span> ripplePaint = <span class="ty">Paint</span>(<span class="ty">Paint.ANTI_ALIAS_FLAG</span>)
+    <span class="kw">private</span> <span class="kw">var</span> animating = <span class="kw">false</span>
+
+    <span class="kw">fun</span> <span class="fn">spawnRipple</span>(x: <span class="ty">Float</span>, y: <span class="ty">Float</span>) {
+        ripples.<span class="fn">add</span>(<span class="ty">Ripple</span>(x, y))
+        <span class="kw">if</span> (!animating) <span class="fn">tick</span>()
+    }
+
+    <span class="kw">private</span> <span class="kw">fun</span> <span class="fn">tick</span>() {
+        animating = <span class="kw">true</span>
+        <span class="fn">postOnAnimation</span> {
+            ripples.<span class="fn">removeAll</span> { it.progress >= <span class="num">1f</span> }
+            ripples.<span class="fn">forEach</span> { it.progress += <span class="num">0.045f</span> }
+            <span class="fn">invalidate</span>()
+            <span class="kw">if</span> (ripples.<span class="fn">isNotEmpty</span>()) <span class="fn">tick</span>() <span class="kw">else</span> animating = <span class="kw">false</span>
+        }
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDraw</span>(canvas: <span class="ty">Canvas</span>) {
+        ripples.<span class="fn">forEach</span> { ripple ->
+            <span class="kw">val</span> alpha = ((1f - ripple.progress) * <span class="num">200</span>).<span class="fn">toInt</span>()
+            <span class="kw">val</span> radius = ripple.progress * <span class="num">80f</span>
+            ripplePaint.<span class="fn">set</span>(rippleColor, alpha, style = <span class="ty">Paint.Style.STROKE</span>, strokeWidth = <span class="num">2f</span>)
+            canvas.<span class="fn">drawCircle</span>(ripple.x, ripple.y, radius, ripplePaint)
+        }
+    }
+}</code></pre>
+
+<h3>GPU Particle Spark System (OpenGL ES 3.0)</h3>
+<pre><code><span class="cm">// Compute shader for particle simulation — OpenGL ES 3.1+
+// Each particle: [posX, posY, velX, velY, life, maxLife]</span>
+<span class="tg">#version 310 es</span>
+<span class="kw">layout</span>(local_size_x = <span class="num">64</span>) <span class="kw">in</span>;
+
+<span class="kw">layout</span>(std430, binding = <span class="num">0</span>) <span class="kw">buffer</span> <span class="ty">Particles</span> {
+    <span class="ty">float</span> data[];
+};
+
+<span class="kw">uniform</span> <span class="ty">float</span> uDeltaTime;
+<span class="kw">uniform</span> <span class="ty">float</span> uGravity;
+
+<span class="kw">void</span> <span class="fn">main</span>() {
+    <span class="kw">uint</span> i    = <span class="fn">gl_GlobalInvocationID</span>.x;
+    <span class="kw">uint</span> base = i * <span class="num">6u</span>;
+
+    <span class="ty">float</span> life = data[base + <span class="num">4u</span>];
+    <span class="kw">if</span> (life <= <span class="num">0.0</span>) <span class="kw">return</span>; <span class="cm">// Dead particle — skip</span>
+
+    <span class="cm">// Integrate position</span>
+    data[base + <span class="num">0u</span>] += data[base + <span class="num">2u</span>] * uDeltaTime;
+    data[base + <span class="num">1u</span>] += data[base + <span class="num">3u</span>] * uDeltaTime;
+
+    <span class="cm">// Apply gravity and drag</span>
+    data[base + <span class="num">3u</span>] -= uGravity * uDeltaTime;
+    data[base + <span class="num">2u</span>] *= (<span class="num">1.0</span> - <span class="num">0.015</span>); <span class="cm">// Horizontal drag</span>
+    data[base + <span class="num">3u</span>] *= (<span class="num">1.0</span> - <span class="num">0.010</span>); <span class="cm">// Vertical drag</span>
+
+    <span class="cm">// Decay life</span>
+    data[base + <span class="num">4u</span>] -= uDeltaTime;
+}</code></pre>
+
+<div class="callout callout-expert">
+  <span class="callout-icon">◆</span>
+  <div class="callout-body">
+    <strong>Particle Budget: Maximum 256 active particles at any time</strong>
+    <p>Testing on Snapdragon 480 (budget 5G): 256 particles with compute shader update + point sprite rendering costs approximately 0.8 ms per frame. 512 particles costs 1.6 ms. The keyboard must keep total frame time under 16 ms while competing with the foreground app. Budget no more than 2 ms total for particle effects.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 17 ─────────────────────────────── -->
+<section id="s17">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 17</span>
+  <h2>Custom Layout XML Architecture <span class="badge b-beginner">Beginner</span></h2>
+  <p class="ch-desc">Designing a flexible, extensible key layout XML schema — beyond the standard Android Keyboard class</p>
+</div>
+
+<p class="lead">Android's built-in <a href="https://developer.android.com/reference/android/inputmethodservice/Keyboard" class="ext"><code>android.inputmethodservice.Keyboard</code></a> XML format (now deprecated) is rigid and doesn't support custom key shapes, arbitrary metadata, or per-key rendering properties. Modern keyboards define their own XML or JSON schema. This section defines a production-quality custom layout schema.</p>
+
+<h3>Custom Layout XML Schema</h3>
+<pre><code><span class="cm">&lt;!-- res/xml/layout_qwerty.xml — Custom keyboard layout schema --&gt;</span>
+<span class="tg">&lt;keyboard</span>
+    <span class="at">xmlns:app</span>=<span class="str">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="at">app:keyHeight</span>=<span class="str">"48dp"</span>
+    <span class="at">app:keyGap</span>=<span class="str">"3dp"</span>
+    <span class="at">app:rowGap</span>=<span class="str">"2dp"</span>
+    <span class="at">app:defaultShape</span>=<span class="str">"roundedRect"</span>
+    <span class="at">app:defaultDepth</span>=<span class="str">"4dp"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;row&gt;</span>
+    <span class="tg">&lt;key</span> <span class="at">app:code</span>=<span class="str">"q"</span> <span class="at">app:label</span>=<span class="str">"Q"</span> <span class="at">app:sublabel</span>=<span class="str">"1"</span> <span class="tg">/&gt;</span>
+    <span class="tg">&lt;key</span> <span class="at">app:code</span>=<span class="str">"w"</span> <span class="at">app:label</span>=<span class="str">"W"</span> <span class="at">app:sublabel</span>=<span class="str">"2"</span> <span class="tg">/&gt;</span>
+    <span class="cm">&lt;!-- ... other keys --&gt;</span>
+    <span class="tg">&lt;key</span> <span class="at">app:code</span>=<span class="str">"p"</span> <span class="at">app:label</span>=<span class="str">"P"</span> <span class="tg">/&gt;</span>
+  <span class="tg">&lt;/row&gt;</span>
+
+  <span class="cm">&lt;!-- Action key with custom shape and material override --&gt;</span>
+  <span class="tg">&lt;key</span>
+      <span class="at">app:code</span>=<span class="str">"@delete"</span>
+      <span class="at">app:iconRes</span>=<span class="str">"@drawable/ic_backspace"</span>
+      <span class="at">app:widthWeight</span>=<span class="str">"1.5"</span>
+      <span class="at">app:shape</span>=<span class="str">"roundedRect"</span>
+      <span class="at">app:material</span>=<span class="str">"action_metal"</span>
+      <span class="at">app:depth</span>=<span class="str">"6dp"</span>
+      <span class="at">app:longPressCode</span>=<span class="str">"@selectAll"</span> <span class="tg">/&gt;</span>
+
+<span class="tg">&lt;/keyboard&gt;</span></code></pre>
+
+<h3>Parsing Custom Layout XML in Kotlin</h3>
+<pre><code><span class="kw">data class</span> <span class="ty">KeyDef</span>(
+    <span class="kw">val</span> code: <span class="ty">String</span>,
+    <span class="kw">val</span> label: <span class="ty">String</span>,
+    <span class="kw">val</span> sublabel: <span class="ty">String</span> = <span class="str">""</span>,
+    <span class="kw">val</span> widthWeight: <span class="ty">Float</span> = <span class="num">1.0f</span>,
+    <span class="kw">val</span> shape: <span class="ty">KeyShape</span> = <span class="ty">KeyShape.ROUNDED_RECT</span>,
+    <span class="kw">val</span> material: <span class="ty">String</span> = <span class="str">"standard"</span>,
+    <span class="kw">val</span> depth: <span class="ty">Float</span> = <span class="num">4f</span>,  <span class="cm">// dp</span>
+    <span class="kw">val</span> longPressCode: <span class="ty">String</span>? = <span class="kw">null</span>
+)
+
+<span class="kw">fun</span> <span class="fn">parseKeyboardLayout</span>(context: <span class="ty">Context</span>, xmlRes: <span class="ty">Int</span>): <span class="ty">List</span>&lt;<span class="ty">List</span>&lt;<span class="ty">KeyDef</span>&gt;&gt; {
+    <span class="kw">val</span> parser = context.resources.<span class="fn">getXml</span>(xmlRes)
+    <span class="kw">val</span> rows = <span class="fn">mutableListOf</span>&lt;<span class="ty">MutableList</span>&lt;<span class="ty">KeyDef</span>&gt;&gt;()
+    <span class="kw">var</span> currentRow: <span class="ty">MutableList</span>&lt;<span class="ty">KeyDef</span>&gt;? = <span class="kw">null</span>
+
+    <span class="kw">while</span> (parser.<span class="fn">next</span>() != <span class="ty">XmlPullParser.END_DOCUMENT</span>) {
+        <span class="kw">if</span> (parser.eventType != <span class="ty">XmlPullParser.START_TAG</span>) <span class="kw">continue</span>
+        <span class="kw">when</span> (parser.name) {
+            <span class="str">"row"</span> -> { currentRow = <span class="fn">mutableListOf</span>(); rows.<span class="fn">add</span>(currentRow) }
+            <span class="str">"key"</span> -> currentRow?.<span class="fn">add</span>(<span class="fn">parseKey</span>(parser))
+        }
+    }
+    <span class="kw">return</span> rows
+}</code></pre>
+
+<p>For full reference implementations of custom layout systems, see the <a href="https://androiddvlpr.com/android-custom-keyboard-layout/" class="ext">Android Custom Keyboard Layout guide</a> and the <a href="https://codezup.com/custom-android-keyboard-practical-example/" class="ext">CodezUp practical example</a>. The <a href="https://codezup.com/custom-android-keyboard-input-methods-framework/" class="ext">CodezUp IMF guide</a> provides deep coverage of the Input Methods Framework internals.</p>
+</section>
+
+<!-- ─── SECTION 18 ─────────────────────────────── -->
+<section id="s18">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 18</span>
+  <h2>Per-Key Shape &amp; Geometry <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Hexagonal keys, circular keys, organic free-form shapes — custom hit detection and rendering for non-rectangular keys</p>
+</div>
+
+<p class="lead">All standard keyboards use rectangular keys. Breaking this constraint opens design possibilities that are genuinely difficult to achieve elsewhere: <strong>hexagonal honeycomb layouts</strong>, <strong>circular thumb clusters</strong>, <strong>organic irregular shapes</strong> for branded experiences. The challenge is that custom shapes require custom hit detection — you can no longer rely on rectangular bounds.</p>
+
+<h3>Custom Shape Types</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Shape</th><th>Hit Detection</th><th>Rendering Technique</th><th>Use Case</th></tr></thead>
+<tbody>
+<tr><td><strong>Rounded Rect</strong></td><td>Rect expand + corner test</td><td>Canvas.drawRoundRect / NinePatch</td><td>Standard keys, most themes</td></tr>
+<tr><td><strong>Hexagonal</strong></td><td>Point-in-hexagon test</td><td>Canvas path / VBO hex mesh</td><td>Gaming keyboards, retro themes</td></tr>
+<tr><td><strong>Circular</strong></td><td>Distance from center</td><td>Canvas.drawCircle / sphere mesh</td><td>Thumb keys, emoji picker</td></tr>
+<tr><td><strong>Diamond</strong></td><td>Rotated rect test</td><td>Rotated canvas path</td><td>Directional clusters</td></tr>
+<tr><td><strong>Free-form SVG</strong></td><td>Android Region.contains</td><td>PathShape drawable</td><td>Branded / novelty keyboards</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Hexagonal Key Hit Detection</h3>
+<pre><code><span class="cm">/**
+ * Returns true if (px, py) falls inside a regular hexagon
+ * centered at (cx, cy) with circumradius r.
+ * Flat-top orientation (rotated 30° from pointy-top).
+ */</span>
+<span class="kw">fun</span> <span class="fn">isInsideHexagon</span>(px: <span class="ty">Float</span>, py: <span class="ty">Float</span>,
+                   cx: <span class="ty">Float</span>, cy: <span class="ty">Float</span>, r: <span class="ty">Float</span>): <span class="ty">Boolean</span> {
+    <span class="kw">val</span> dx = <span class="ty">Math</span>.<span class="fn">abs</span>(px - cx)
+    <span class="kw">val</span> dy = <span class="ty">Math</span>.<span class="fn">abs</span>(py - cy)
+    <span class="cm">// Fast early-out with bounding box</span>
+    <span class="kw">if</span> (dx > r || dy > r * <span class="num">0.866</span>) <span class="kw">return</span> <span class="kw">false</span>
+    <span class="cm">// Half-plane test for hex edge</span>
+    <span class="kw">return</span> (<span class="num">0.866</span> * dx + <span class="num">0.5</span> * dy) <= r * <span class="num">0.866</span>
+}
+
+<span class="cm">// Honeycomb layout positioning — alternate row offset</span>
+<span class="kw">fun</span> <span class="fn">hexGridCenter</span>(col: <span class="ty">Int</span>, row: <span class="ty">Int</span>, r: <span class="ty">Float</span>): <span class="ty">PointF</span> {
+    <span class="kw">val</span> colSpacing = r * <span class="num">1.732f</span>  <span class="cm">// sqrt(3) * r</span>
+    <span class="kw">val</span> rowSpacing = r * <span class="num">1.5f</span>
+    <span class="kw">val</span> offset     = <span class="kw">if</span> (row % <span class="num">2</span> == <span class="num">0</span>) <span class="num">0f</span> <span class="kw">else</span> colSpacing * <span class="num">0.5f</span>
+    <span class="kw">return</span> <span class="ty">PointF</span>(col * colSpacing + offset, row * rowSpacing)
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 19 ─────────────────────────────── -->
+<section id="s19">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 19</span>
+  <h2>Dynamic Theme Engine <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Building a typed, JSON-backed theme system with live preview, Material You integration, and user-editable parameters</p>
+</div>
+
+<p class="lead">A theme engine turns visual customization from a list of settings into a <strong>coherent design system</strong>. The best reference for this is FlorisBoard's <a href="https://github.com/florisboard/florisboard/tree/main/app/src/main/kotlin/dev/patrickgold/florisboard/snygg" class="ext">Snygg engine</a>. This section designs a simplified but production-capable alternative using a typed Kotlin data class schema backed by JSON.</p>
+
+<h3>Theme Data Model</h3>
+<pre><code><span class="an">@Serializable</span>
+<span class="kw">data class</span> <span class="ty">KeyboardTheme</span>(
+    <span class="kw">val</span> id:              <span class="ty">String</span>,
+    <span class="kw">val</span> name:            <span class="ty">String</span>,
+    <span class="kw">val</span> version:         <span class="ty">Int</span> = <span class="num">1</span>,
+    <span class="kw">val</span> author:          <span class="ty">String</span> = <span class="str">""</span>,
+
+    <span class="cm">// Key surface</span>
+    <span class="kw">val</span> keyBackground:   <span class="ty">ColorHex</span>,   <span class="cm">// e.g. "#2D2A26"</span>
+    <span class="kw">val</span> keyBorder:       <span class="ty">ColorHex</span>,
+    <span class="kw">val</span> keyLabel:        <span class="ty">ColorHex</span>,
+    <span class="kw">val</span> keyLabelPressed: <span class="ty">ColorHex</span>,
+    <span class="kw">val</span> keyCornerRadius: <span class="ty">Float</span> = <span class="num">8f</span>,
+    <span class="kw">val</span> keyDepth:        <span class="ty">Float</span> = <span class="num">4f</span>,  <span class="cm">// 3D depth in dp</span>
+    <span class="kw">val</span> keyRoughness:    <span class="ty">Float</span> = <span class="num">0.4f</span>,
+    <span class="kw">val</span> keyMetallic:     <span class="ty">Float</span> = <span class="num">0.0f</span>,
+
+    <span class="cm">// Action keys (Enter, Delete, Shift)</span>
+    <span class="kw">val</span> actionBackground: <span class="ty">ColorHex</span>,
+    <span class="kw">val</span> actionLabel:      <span class="ty">ColorHex</span>,
+
+    <span class="cm">// Keyboard background</span>
+    <span class="kw">val</span> boardBackground: <span class="ty">ColorHex</span>,
+    <span class="kw">val</span> backgroundUri:   <span class="ty">String</span>? = <span class="kw">null</span>,  <span class="cm">// Custom image path</span>
+    <span class="kw">val</span> backgroundBlur:  <span class="ty">Float</span> = <span class="num">0f</span>,       <span class="cm">// 0-25 blur radius</span>
+
+    <span class="cm">// Particles / effects</span>
+    <span class="kw">val</span> particlePreset:  <span class="ty">ParticlePreset</span> = <span class="ty">ParticlePreset.NONE</span>,
+    <span class="kw">val</span> particleColor:   <span class="ty">ColorHex</span> = <span class="str">"#FFFFFF"</span>,
+
+    <span class="cm">// Font</span>
+    <span class="kw">val</span> fontFamily:      <span class="ty">String</span> = <span class="str">"system"</span>,  <span class="cm">// system | path to custom TTF</span>
+    <span class="kw">val</span> labelSizeSp:     <span class="ty">Float</span> = <span class="num">13f</span>,
+
+    <span class="cm">// Material You integration</span>
+    <span class="kw">val</span> followSystemColors: <span class="ty">Boolean</span> = <span class="kw">false</span>,
+    <span class="kw">val</span> iblIntensity:    <span class="ty">Float</span> = <span class="num">30_000f</span>
+)
+
+<span class="kw">enum class</span> <span class="ty">ParticlePreset</span> {
+    NONE, SPARKS, CONFETTI, RIPPLE, INK_SPLATTER, SNOW, EMBERS
+}</code></pre>
+
+<h3>Material You Integration</h3>
+<pre><code><span class="cm">// Extract Material You dynamic colors and map to keyboard theme</span>
+<span class="an">@RequiresApi(31)</span>
+<span class="kw">fun</span> <span class="fn">KeyboardTheme.Companion.fromMaterialYou</span>(context: <span class="ty">Context</span>): <span class="ty">KeyboardTheme</span> {
+    <span class="kw">val</span> dynamicColors = <span class="ty">DynamicColors</span>.<span class="fn">wrapContextIfAvailable</span>(context)
+    <span class="kw">val</span> typedArray = dynamicColors.<span class="fn">obtainStyledAttributes</span>(
+        intArrayOf(
+            com.google.android.material.R.attr.colorSurface,
+            com.google.android.material.R.attr.colorOnSurface,
+            com.google.android.material.R.attr.colorPrimary,
+            com.google.android.material.R.attr.colorOnPrimary
+        )
+    )
+    <span class="kw">return</span> <span class="ty">KeyboardTheme</span>(
+        id = <span class="str">"material_you_dynamic"</span>,
+        name = <span class="str">"Material You"</span>,
+        keyBackground  = typedArray.<span class="fn">getColorHex</span>(<span class="num">0</span>),
+        keyLabel       = typedArray.<span class="fn">getColorHex</span>(<span class="num">1</span>),
+        keyBorder      = typedArray.<span class="fn">getColorHex</span>(<span class="num">0</span>),
+        keyLabelPressed = typedArray.<span class="fn">getColorHex</span>(<span class="num">1</span>),
+        actionBackground = typedArray.<span class="fn">getColorHex</span>(<span class="num">2</span>),
+        actionLabel    = typedArray.<span class="fn">getColorHex</span>(<span class="num">3</span>),
+        boardBackground = typedArray.<span class="fn">getColorHex</span>(<span class="num">0</span>),
+        followSystemColors = <span class="kw">true</span>
+    ).<span class="fn">also</span> { typedArray.<span class="fn">recycle</span>() }
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 20 ─────────────────────────────── -->
+<section id="s20">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 20</span>
+  <h2>User-Uploaded Backgrounds <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Safely loading, resizing, caching, and blurring user-provided images as keyboard backgrounds — with GDPR-conscious storage</p>
+</div>
+
+<p class="lead">Allowing users to set their own photos as keyboard backgrounds is a high-engagement personalization feature. The implementation must handle large images gracefully, apply blur for readability, cache efficiently, and avoid retaining the image after the user uninstalls.</p>
+
+<h3>Image Pipeline: Load → Resize → Blur → Cache</h3>
+<pre><code><span class="kw">class</span> <span class="ty">BackgroundImagePipeline</span>(
+    <span class="kw">private val</span> context: <span class="ty">Context</span>,
+    <span class="kw">private val</span> scope: <span class="ty">CoroutineScope</span>
+) {
+    <span class="cm">// Target size: keyboard width × height at device density — never larger</span>
+    <span class="kw">private val</span> targetWidth  = context.resources.displayMetrics.widthPixels
+    <span class="kw">private val</span> targetHeight = (context.resources.displayMetrics.density * <span class="num">240</span>).<span class="fn">toInt</span>()
+
+    <span class="kw">suspend fun</span> <span class="fn">processUserImage</span>(uri: <span class="ty">Uri</span>, blurRadius: <span class="ty">Float</span> = <span class="num">12f</span>): <span class="ty">Bitmap</span>? =
+        <span class="fn">withContext</span>(<span class="ty">Dispatchers.IO</span>) {
+            <span class="kw">try</span> {
+                <span class="cm">// 1. Decode with inSampleSize to avoid OOM on large photos</span>
+                <span class="kw">val</span> opts = <span class="ty">BitmapFactory.Options</span>().<span class="fn">apply</span> {
+                    inJustDecodeBounds = <span class="kw">true</span>
+                    context.contentResolver.<span class="fn">openInputStream</span>(uri)?.<span class="fn">use</span> {
+                        <span class="ty">BitmapFactory</span>.<span class="fn">decodeStream</span>(it, <span class="kw">null</span>, <span class="kw">this</span>)
+                    }
+                    inSampleSize = <span class="fn">calculateSampleSize</span>(outWidth, outHeight)
+                    inJustDecodeBounds = <span class="kw">false</span>
+                    inPreferredConfig = <span class="ty">Bitmap.Config.ARGB_8888</span>
+                }
+                <span class="kw">val</span> raw = context.contentResolver.<span class="fn">openInputStream</span>(uri)?.<span class="fn">use</span> {
+                    <span class="ty">BitmapFactory</span>.<span class="fn">decodeStream</span>(it, <span class="kw">null</span>, opts)
+                } ?: <span class="kw">return</span>@withContext <span class="kw">null</span>
+
+                <span class="cm">// 2. Scale to keyboard dimensions</span>
+                <span class="kw">val</span> scaled = <span class="ty">Bitmap</span>.<span class="fn">createScaledBitmap</span>(raw, targetWidth, targetHeight, <span class="kw">true</span>)
+                raw.<span class="fn">recycle</span>()
+
+                <span class="cm">// 3. RenderScript blur (API 31+ use BlurEffect; older use RS)</span>
+                <span class="kw">val</span> blurred = <span class="fn">applyBlur</span>(scaled, blurRadius)
+                scaled.<span class="fn">recycle</span>()
+
+                <span class="cm">// 4. Cache to internal storage — not accessible outside the app</span>
+                <span class="fn">cacheBackground</span>(blurred)
+                blurred
+            } <span class="kw">catch</span> (e: <span class="ty">Exception</span>) { <span class="kw">null</span> }
+        }
+
+    <span class="kw">private fun</span> <span class="fn">calculateSampleSize</span>(w: <span class="ty">Int</span>, h: <span class="ty">Int</span>): <span class="ty">Int</span> {
+        <span class="kw">var</span> s = <span class="num">1</span>
+        <span class="kw">while</span> (w / s > targetWidth * <span class="num">2</span> || h / s > targetHeight * <span class="num">2</span>) s *= <span class="num">2</span>
+        <span class="kw">return</span> s
+    }
+}</code></pre>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>GDPR &amp; Privacy: User images are sensitive data</strong>
+    <p>Store processed background images in <code>context.filesDir</code> (private to your app), never in shared storage. Include a "Clear background" option that deletes the file. Disclose image processing in your Play Store Data Safety declaration. Never upload or transmit the user's image — process entirely on-device.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 21 ─────────────────────────────── -->
+<section id="s21">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 21</span>
+  <h2>Sound &amp; Haptic Packs <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Designing a theme-based audio and haptic system with user-selectable packs, per-key audio, and VibrationEffect composition</p>
+</div>
+
+<p class="lead">Audio and haptics are a critical but often neglected dimension of keyboard personalization. A "mechanical keyboard" theme without clicky audio feedback is incomplete. This section designs a complete sound and haptic pack system where each theme ships its own audio and vibration assets.</p>
+
+<h3>Sound Pack Structure</h3>
+<pre><code><span class="cm">// Sound pack descriptor (JSON — shipped in assets/sounds/)</span>
+{
+  "id":       "mechanical_blue",
+  "name":     "Mechanical Blue Switch",
+  "version":  1,
+  "samples": {
+    "key_press":   "samples/blue_press.ogg",
+    "key_release": "samples/blue_release.ogg",
+    "space_press": "samples/blue_space.ogg",
+    "delete_press": "samples/blue_delete.ogg",
+    "return_press": "samples/blue_return.ogg"
+  },
+  "volume":    0.65,
+  "pitchMin":  0.95,
+  "pitchMax":  1.05
+}</code></pre>
+
+<h3>SoundPool-Based Playback Engine</h3>
+<pre><code><span class="kw">class</span> <span class="ty">KeySoundEngine</span>(context: <span class="ty">Context</span>) {
+
+    <span class="kw">private</span> <span class="kw">val</span> soundPool = <span class="ty">SoundPool.Builder</span>()
+        .<span class="fn">setMaxStreams</span>(<span class="num">4</span>)
+        .<span class="fn">setAudioAttributes</span>(
+            <span class="ty">AudioAttributes.Builder</span>()
+                .<span class="fn">setUsage</span>(<span class="ty">AudioAttributes.USAGE_ASSISTANCE_SONIFICATION</span>)
+                .<span class="fn">setContentType</span>(<span class="ty">AudioAttributes.CONTENT_TYPE_SONIFICATION</span>)
+                .<span class="fn">build</span>()
+        ).<span class="fn">build</span>()
+
+    <span class="kw">private</span> <span class="kw">val</span> soundIds = <span class="fn">mutableMapOf</span>&lt;<span class="ty">String</span>, <span class="ty">Int</span>&gt;()
+
+    <span class="kw">fun</span> <span class="fn">loadPack</span>(context: <span class="ty">Context</span>, pack: <span class="ty">SoundPack</span>) {
+        soundIds.<span class="fn">clear</span>()
+        pack.samples.<span class="fn">forEach</span> { (key, assetPath) ->
+            context.assets.<span class="fn">openFd</span>(assetPath).<span class="fn">use</span> { fd ->
+                soundIds[key] = soundPool.<span class="fn">load</span>(fd, <span class="num">1</span>)
+            }
+        }
+    }
+
+    <span class="kw">fun</span> <span class="fn">play</span>(eventType: <span class="ty">String</span>, pack: <span class="ty">SoundPack</span>) {
+        <span class="kw">val</span> id = soundIds[eventType] ?: soundIds[<span class="str">"key_press"</span>] ?: <span class="kw">return</span>
+        <span class="kw">val</span> pitch = <span class="ty">Random</span>.<span class="fn">nextFloat</span>() * (pack.pitchMax - pack.pitchMin) + pack.pitchMin
+        soundPool.<span class="fn">play</span>(id, pack.volume, pack.volume, <span class="num">0</span>, <span class="num">0</span>, pitch)
+    }
+
+    <span class="kw">fun</span> <span class="fn">release</span>() { soundPool.<span class="fn">release</span>() }
+}
+
+<span class="cm">// VibrationEffect composition — API 26+</span>
+<span class="kw">fun</span> <span class="fn">buildKeyHaptic</span>(preset: <span class="ty">HapticPreset</span>): <span class="ty">VibrationEffect</span> = <span class="kw">when</span> (preset) {
+    <span class="ty">HapticPreset.CLICK</span>     -> <span class="ty">VibrationEffect</span>.<span class="fn">createPredefined</span>(<span class="ty">VibrationEffect.EFFECT_CLICK</span>)
+    <span class="ty">HapticPreset.TICK</span>      -> <span class="ty">VibrationEffect</span>.<span class="fn">createPredefined</span>(<span class="ty">VibrationEffect.EFFECT_TICK</span>)
+    <span class="ty">HapticPreset.HEAVY</span>     -> <span class="ty">VibrationEffect</span>.<span class="fn">createPredefined</span>(<span class="ty">VibrationEffect.EFFECT_HEAVY_CLICK</span>)
+    <span class="ty">HapticPreset.DOUBLE_CLICK</span> -> <span class="ty">VibrationEffect</span>.<span class="fn">createPredefined</span>(<span class="ty">VibrationEffect.EFFECT_DOUBLE_CLICK</span>)
+    <span class="ty">HapticPreset.CUSTOM</span>    -> <span class="ty">VibrationEffect</span>.<span class="fn">createWaveform</span>(
+        longArrayOf(<span class="num">0</span>, <span class="num">15</span>, <span class="num">30</span>, <span class="num">15</span>), <span class="cm">// timings ms</span>
+        intArrayOf(<span class="num">0</span>, <span class="num">200</span>, <span class="num">0</span>, <span class="num">100</span>),  <span class="cm">// amplitudes</span>
+        -<span class="num">1</span>                             <span class="cm">// no repeat</span>
+    )
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 22 ─────────────────────────────── -->
+<section id="s22">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 22</span>
+  <h2>Font &amp; Label Customization <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Custom typefaces on key labels — loading TTF/OTF fonts, variable fonts, icon fonts, and rendering at multiple scales</p>
+</div>
+
+<p class="lead">Key labels are the most legible text on a keyboard. Changing the typeface dramatically alters personality: a geometric sans-serif feels modern and technical; a rounded display font feels friendly; a monospaced font signals developer-centric branding. This section covers the full pipeline from font asset to rendered label.</p>
+
+<h3>Custom Font Pipeline</h3>
+<pre><code><span class="kw">object</span> <span class="ty">KeyFontCache</span> {
+    <span class="kw">private</span> <span class="kw">val</span> cache = <span class="fn">mutableMapOf</span>&lt;<span class="ty">String</span>, <span class="ty">Typeface</span>&gt;()
+
+    <span class="kw">fun</span> <span class="fn">load</span>(context: <span class="ty">Context</span>, fontIdentifier: <span class="ty">String</span>): <span class="ty">Typeface</span> =
+        cache.<span class="fn">getOrPut</span>(fontIdentifier) {
+            <span class="kw">when</span> {
+                fontIdentifier == <span class="str">"system"</span> -> <span class="ty">Typeface.DEFAULT</span>
+                fontIdentifier.<span class="fn">startsWith</span>(<span class="str">"assets:"</span>) -> {
+                    <span class="kw">val</span> path = fontIdentifier.<span class="fn">removePrefix</span>(<span class="str">"assets:"</span>)
+                    <span class="ty">Typeface</span>.<span class="fn">createFromAsset</span>(context.assets, path)
+                }
+                fontIdentifier.<span class="fn">startsWith</span>(<span class="str">"file:"</span>) -> {
+                    <span class="kw">val</span> path = fontIdentifier.<span class="fn">removePrefix</span>(<span class="str">"file:"</span>)
+                    <span class="ty">Typeface</span>.<span class="fn">createFromFile</span>(<span class="ty">File</span>(path))
+                }
+                <span class="kw">else</span> -> <span class="ty">Typeface.DEFAULT</span>
+            }
+        }
+}
+
+<span class="cm">// Variable font support (API 26+) — adjust weight per theme</span>
+<span class="kw">fun</span> <span class="fn">loadVariableFont</span>(context: <span class="ty">Context</span>, assetPath: <span class="ty">String</span>, weight: <span class="ty">Int</span> = <span class="num">500</span>): <span class="ty">Typeface</span> {
+    <span class="kw">val</span> builder = <span class="ty">Typeface.Builder</span>(context.assets, assetPath)
+    builder.<span class="fn">setFontVariationSettings</span>(<span class="str">"'wght' $weight"</span>)
+    <span class="kw">return</span> builder.<span class="fn">build</span>()
+}</code></pre>
+
+<div class="callout callout-tip">
+  <span class="callout-icon">✓</span>
+  <div class="callout-body">
+    <strong>Use variable fonts for compact size + maximum flexibility</strong>
+    <p>A single variable font file (e.g., Google's Recursive, Roboto Flex) covers the full weight and width axes — replacing 8+ static font files. For keyboards shipping multiple theme packs, this cuts asset size significantly. Variable fonts are supported from API 26 via <code>Typeface.Builder.setFontVariationSettings()</code>.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─── SECTION 23 ─────────────────────────────── -->
+<section id="s23">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 23</span>
+  <h2>Unity Android Plugin <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Embedding a Unity scene as the keyboard's rendering layer — plugin lifecycle, UnityPlayer integration, and input routing</p>
+</div>
+
+<p class="lead">For teams with existing Unity expertise and 3D assets, embedding Unity as the keyboard renderer provides access to the full Unity asset ecosystem — particle systems, shader graphs, post-processing, and asset store content. The integration requires a Unity Android plugin (AAR) and careful lifecycle bridging between the IME and <code>UnityPlayer</code>.</p>
+
+<div class="callout callout-danger">
+  <span class="callout-icon">🚫</span>
+  <div class="callout-body">
+    <strong>Unity in an IME: Significant caveats</strong>
+    <p>Unity's <code>UnityPlayer</code> is designed to be the primary activity renderer — not a background service renderer. It assumes it can take full control of the Android Activity, GL context, and main loop. Embedding it in an IME service requires hacking around these assumptions and is <strong>unsupported by Unity Technologies</strong>. The approach described here is an advanced workaround, not an official pattern. Budget 4–6 weeks for integration work, and test exhaustively across OEMs. Unity's standard LTS (2022/2023) is the only version worth attempting this with.</p>
+  </div>
+</div>
+
+<h3>Unity as Android Library Module</h3>
+<pre><code><span class="cm">// build.gradle.kts (IME module)
+// Unity exports its runtime as an AAR — add it as a local dependency</span>
+dependencies {
+    implementation(<span class="fn">fileTree</span>(dir = <span class="str">"libs"</span>, include = listOf(<span class="str">"*.aar"</span>)))
+    <span class="cm">// The unity-classes.jar ships inside the Unity Android export</span>
+}
+
+<span class="cm">// In proguard-rules.pro — keep Unity classes</span>
+<span class="cm">// -keep class com.unity3d.** { *; }</span>
+<span class="cm">// -keep class com.unity.androidnotifications.** { *; }</span></code></pre>
+
+<h3>UnityPlayer Bridge in IME Service</h3>
+<pre><code><span class="kw">class</span> <span class="ty">UnityKeyboardService</span> : <span class="ty">InputMethodService</span>() {
+
+    <span class="kw">private</span> <span class="kw">var</span> unityPlayer: <span class="ty">UnityPlayer</span>? = <span class="kw">null</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreate</span>() {
+        <span class="kw">super</span>.<span class="fn">onCreate</span>()
+        <span class="cm">// UnityPlayer needs an Activity context for its initialization,
+        // but IME has only a Service context. We pass 'this' and accept
+        // that some Unity features (e.g., AR) will not work.</span>
+        <span class="kw">try</span> {
+            unityPlayer = <span class="ty">UnityPlayer</span>(<span class="kw">this</span>, <span class="kw">null</span>)
+        } <span class="kw">catch</span> (e: <span class="ty">Exception</span>) {
+            <span class="cm">// Fallback to standard Canvas rendering</span>
+            <span class="fn">Log.e</span>(<span class="str">"Unity"</span>, <span class="str">"UnityPlayer init failed, falling back"</span>, e)
+        }
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+        <span class="kw">val</span> up = unityPlayer ?: <span class="kw">return</span> <span class="fn">buildFallbackView</span>()
+        up.<span class="fn">requestFocus</span>()
+        <span class="cm">// Send Unity a message to set up keyboard scene</span>
+        <span class="ty">UnityPlayer</span>.<span class="fn">UnitySendMessage</span>(<span class="str">"KeyboardManager"</span>, <span class="str">"SetupScene"</span>, <span class="str">""</span>)
+        <span class="kw">return</span> up
+    }
+
+    <span class="cm">// Route key taps to Unity — Unity renders press animation</span>
+    <span class="kw">fun</span> <span class="fn">onKeyPressed</span>(keyCode: <span class="ty">String</span>) {
+        <span class="ty">UnityPlayer</span>.<span class="fn">UnitySendMessage</span>(<span class="str">"KeyboardManager"</span>, <span class="str">"OnKeyPress"</span>, keyCode)
+        currentInputConnection?.<span class="fn">commitText</span>(keyCode, <span class="num">1</span>)
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onStartInputView</span>(info: <span class="ty">EditorInfo</span>, restarting: <span class="ty">Boolean</span>) {
+        <span class="kw">super</span>.<span class="fn">onStartInputView</span>(info, restarting)
+        unityPlayer?.<span class="fn">resume</span>()
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onFinishInputView</span>(finishingInput: <span class="ty">Boolean</span>) {
+        unityPlayer?.<span class="fn">pause</span>()
+        <span class="kw">super</span>.<span class="fn">onFinishInputView</span>(finishingInput)
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onDestroy</span>() {
+        unityPlayer?.<span class="fn">destroy</span>()
+        <span class="kw">super</span>.<span class="fn">onDestroy</span>()
+    }
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 24 ─────────────────────────────── -->
+<section id="s24">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 24</span>
+  <h2>Godot Android Library <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Using Godot's Android library (GodotFragment / GodotHost) to render a keyboard scene, Godot–Android signal bridge, and input routing</p>
+</div>
+
+<p class="lead"><a href="https://docs.godotengine.org/en/stable/tutorials/platform/android/android_library.html" class="ext">Godot 4.x provides an official Android library</a> that allows embedding a Godot scene inside an Android application. Unlike Unity, Godot was designed from the start to support being embedded as a library — making it a more practical choice for keyboard rendering than Unity.</p>
+
+<h3>Setup: Godot Android Library</h3>
+<pre><code><span class="cm">// 1. Export your Godot keyboard scene as an Android library</span>
+<span class="cm">//    In Godot: Project → Export → Android → Export as Library</span>
+<span class="cm">//    This generates a .aar file</span>
+
+<span class="cm">// 2. Add to your IME project</span>
+<span class="cm">// settings.gradle.kts</span>
+dependencyResolutionManagement {
+    repositories {
+        maven { url = uri(<span class="str">"https://godot.im/releases"</span>) }
+    }
+}
+
+<span class="cm">// build.gradle.kts</span>
+dependencies {
+    implementation(<span class="str">"org.godotengine:godot:4.3.0.stable"</span>)
+    implementation(files(<span class="str">"libs/keyboard_scene.aar"</span>))
+}</code></pre>
+
+<h3>GodotFragment in IME</h3>
+<pre><code><span class="kw">class</span> <span class="ty">GodotKeyboardService</span> : <span class="ty">InputMethodService</span>(), <span class="ty">GodotHost</span> {
+
+    <span class="kw">private</span> <span class="kw">var</span> godotFragment: <span class="ty">GodotFragment</span>? = <span class="kw">null</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+        <span class="cm">// Godot requires a FragmentActivity context for GodotFragment.
+        // For an IME, we wrap in a custom FrameLayout that hosts the fragment.</span>
+        <span class="kw">val</span> container = <span class="ty">FrameLayout</span>(<span class="kw">this</span>)
+
+        godotFragment = <span class="ty">GodotFragment</span>().<span class="fn">also</span> { fragment ->
+            <span class="cm">// GodotFragment embeds directly as a View in API 28+</span>
+            <span class="cm">// Pass startup parameters to the Godot scene</span>
+            fragment.arguments = <span class="ty">Bundle</span>().<span class="fn">apply</span> {
+                <span class="fn">putStringArray</span>(<span class="str">"command_line"</span>, arrayOf(
+                    <span class="str">"--main-pack"</span>, <span class="str">"keyboard_scene.pck"</span>
+                ))
+            }
+            container.<span class="fn">addView</span>(fragment.requireView(),
+                <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>,
+                <span class="ty">FrameLayout.LayoutParams.MATCH_PARENT</span>)
+        }
+        <span class="kw">return</span> container
+    }
+
+    <span class="cm">// Send key events to Godot scene via GDScript bridge</span>
+    <span class="kw">fun</span> <span class="fn">onKeyTapped</span>(keyLabel: <span class="ty">String</span>) {
+        godotFragment?.godot?.<span class="fn">runOnGodotThread</span> {
+            <span class="cm">// Call a GDScript function via Android Java/Kotlin bridge</span>
+            <span class="cm">// In Godot scene: keyboard_bridge.gd defines on_key_pressed(label)</span>
+            <span class="fn">GodotLib.calldeferred</span>(<span class="str">"keyboard_bridge"</span>, <span class="str">"on_key_pressed"</span>,
+                arrayOf(keyLabel))
+        }
+        currentInputConnection?.<span class="fn">commitText</span>(keyLabel, <span class="num">1</span>)
+    }
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">getActivity</span>(): <span class="ty">FragmentActivity</span>? = <span class="kw">null</span> <span class="cm">// IME has no Activity</span>
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">getHostPlugins</span>(godot: <span class="ty">Godot</span>) = setOf&lt;<span class="ty">GodotPlugin</span>&gt;()
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 25 ─────────────────────────────── -->
+<section id="s25">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 25</span>
+  <h2>AR Keyboard with Sceneform <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Augmented Reality keys that float in the real world — Sceneform/ARCore setup, plane detection, and overlay routing for IME</p>
+</div>
+
+<p class="lead">An AR keyboard projects 3D keys into the camera feed, making them appear to rest on surfaces in the real world. This is an advanced novelty feature — not appropriate as a default experience — but an impressive demonstration of what's possible with the Sceneform + ARCore stack integrated into an IME.</p>
+
+<div class="callout callout-warning">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>AR keyboard is a showcase feature, not a usability feature</strong>
+    <p>AR requires the camera, which drains battery rapidly, requires the <code>CAMERA</code> permission (showing a dangerous permission prompt), and makes typing significantly harder. Gate the AR mode behind a clear opt-in and provide an immediate exit. Only enable it in apps where the camera context makes sense (AR apps, games, novelty experiences).</p>
+  </div>
+</div>
+
+<h3>Sceneform AR Overlay Architecture</h3>
+<pre><code><span class="cm">// Gradle dependency</span>
+implementation(<span class="str">"io.github.sceneview:arsceneview:2.2.1"</span>)
+
+<span class="cm">// AndroidManifest.xml additions for AR keyboard mode</span>
+<span class="cm">&lt;uses-permission android:name="android.permission.CAMERA" /&gt;</span>
+<span class="cm">&lt;uses-feature android:name="android.hardware.camera.ar" android:required="false" /&gt;</span>
+<span class="cm">&lt;meta-data android:name="com.google.ar.core" android:value="optional" /&gt;</span></code></pre>
+
+<pre><code><span class="kw">class</span> <span class="ty">ARKeyboardService</span> : <span class="ty">InputMethodService</span>() {
+
+    <span class="kw">private</span> <span class="kw">var</span> arMode = <span class="kw">false</span>
+
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onCreateInputView</span>(): <span class="ty">View</span> {
+        <span class="cm">// Check ARCore availability before attempting AR</span>
+        arMode = <span class="ty">ArCoreApk.getInstance</span>().<span class="fn">checkAvailability</span>(<span class="kw">this</span>) ==
+                 <span class="ty">ArCoreApk.Availability.SUPPORTED_INSTALLED</span>
+             && <span class="fn">checkSelfPermission</span>(<span class="ty">Manifest.permission.CAMERA</span>) ==
+                <span class="ty">PackageManager.PERMISSION_GRANTED</span>
+
+        <span class="kw">return</span> <span class="kw">if</span> (arMode) <span class="fn">buildARView</span>() <span class="kw">else</span> <span class="fn">buildStandardView</span>()
+    }
+
+    <span class="kw">private fun</span> <span class="fn">buildARView</span>(): <span class="ty">View</span> {
+        <span class="cm">// ARSceneView handles camera, plane detection, and rendering</span>
+        <span class="kw">return</span> <span class="ty">ARSceneView</span>(<span class="kw">this</span>).<span class="fn">apply</span> {
+            <span class="fn">planeRenderer</span>.<span class="fn">isEnabled</span> = <span class="kw">true</span>
+            <span class="cm">// Place keyboard anchor on detected horizontal plane</span>
+            <span class="fn">onSessionUpdated</span> = { session, frame ->
+                <span class="kw">if</span> (<span class="fn">getAnchors</span>().<span class="fn">isEmpty</span>()) {
+                    frame.<span class="fn">getUpdatedTrackables</span>(<span class="ty">Plane::class.java</span>)
+                        .<span class="fn">firstOrNull</span> { it.trackingState == <span class="ty">TrackingState.TRACKING</span>
+                                   && it.type == <span class="ty">Plane.Type.HORIZONTAL_UPWARD_FACING</span> }
+                        ?.<span class="fn">let</span> { plane ->
+                            <span class="fn">addChildNode</span>(<span class="fn">buildKeyboardNode</span>(plane))
+                        }
+                }
+            }
+        }
+    }
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 26 ─────────────────────────────── -->
+<section id="s26">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 26</span>
+  <h2>AI-Driven Personalization <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">On-device ML for adaptive themes, predictive color selection, typing pattern detection, and federated learning principles</p>
+</div>
+
+<p class="lead">The next frontier of keyboard personalization uses on-device machine learning to adapt the keyboard's appearance to the user's context, habits, and preferences — without sending data off-device. This section covers practical, production-ready approaches using Android's on-device ML stack.</p>
+
+<h3>Adaptive Theme Selection — TensorFlow Lite</h3>
+<p>A lightweight TFLite model can observe typing session features (time of day, app context, typing speed, error rate) and recommend a theme variant — brighter for daylight, darker for night, simpler layouts when error rate is high.</p>
+
+<pre><code><span class="cm">// Gradle</span>
+implementation(<span class="str">"org.tensorflow:tensorflow-lite:2.14.0"</span>)
+implementation(<span class="str">"org.tensorflow:tensorflow-lite-support:0.4.4"</span>)
+
+<span class="cm">// Theme recommendation model input tensor: [7 features]
+// [hour_sin, hour_cos, typing_speed_norm, error_rate, app_type,
+//  ambient_brightness, session_duration_norm]</span>
+
+<span class="kw">class</span> <span class="ty">ThemeAdvisor</span>(context: <span class="ty">Context</span>) {
+
+    <span class="kw">private</span> <span class="kw">val</span> interpreter: <span class="ty">Interpreter</span>
+
+    <span class="kw">init</span> {
+        <span class="kw">val</span> model = <span class="ty">FileUtil</span>.<span class="fn">loadMappedFile</span>(context, <span class="str">"theme_advisor.tflite"</span>)
+        interpreter = <span class="ty">Interpreter</span>(model)
+    }
+
+    <span class="kw">fun</span> <span class="fn">recommendTheme</span>(features: <span class="ty">ThemeFeatures</span>): <span class="ty">String</span> {
+        <span class="kw">val</span> input  = floatArrayOf(
+            <span class="fn">sin</span>(features.hourOfDay * <span class="ty">Math.PI</span> / <span class="num">12</span>).<span class="fn">toFloat</span>(),
+            <span class="fn">cos</span>(features.hourOfDay * <span class="ty">Math.PI</span> / <span class="num">12</span>).<span class="fn">toFloat</span>(),
+            (features.typingSpeed / <span class="num">80f</span>).<span class="fn">coerceIn</span>(<span class="num">0f</span>, <span class="num">1f</span>),
+            features.errorRate.<span class="fn">coerceIn</span>(<span class="num">0f</span>, <span class="num">1f</span>),
+            features.appTypeFactor,
+            (features.ambientBrightness / <span class="num">255f</span>),
+            (features.sessionDurationSec / <span class="num">300f</span>).<span class="fn">coerceIn</span>(<span class="num">0f</span>, <span class="num">1f</span>)
+        )
+        <span class="kw">val</span> output = Array(<span class="num">1</span>) { FloatArray(<span class="num">4</span>) } <span class="cm">// 4 theme classes</span>
+        interpreter.<span class="fn">run</span>(input, output)
+
+        <span class="kw">val</span> themeIndex = output[<span class="num">0</span>].<span class="fn">indexOfFirst</span> { it == output[<span class="num">0</span>].<span class="fn">max</span>() }
+        <span class="kw">return</span> listOf(<span class="str">"light_standard"</span>, <span class="str">"dark_standard"</span>,
+                      <span class="str">"light_minimal"</span>, <span class="str">"dark_minimal"</span>)[themeIndex]
+    }
+}</code></pre>
+
+<h3>Privacy-Preserving Personalization Principles</h3>
+<ul>
+  <li><strong>Never log keystrokes.</strong> Derive features (typing speed, error rate) from aggregate statistics, not individual key events.</li>
+  <li><strong>All ML inference on-device.</strong> No data leaves the device. Use TFLite or ONNX Runtime Mobile, not cloud APIs.</li>
+  <li><strong>User control first.</strong> AI recommendations are suggestions — the user's explicit theme choice always overrides the model.</li>
+  <li><strong>Federated learning for future models.</strong> If improving models from usage, use <a href="https://ai.google.dev/edge/federated-learning" class="ext">TensorFlow Federated</a> — trains on-device, only aggregated gradients (never raw data) are shared.</li>
+</ul>
+</section>
+
+<!-- ─── SECTION 27 ─────────────────────────────── -->
+<section id="s27">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 27</span>
+  <h2>Live Wallpaper Background Keys <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Syncing the keyboard background with the device's live wallpaper colors and motion via WallpaperManager</p>
+</div>
+
+<p class="lead">Android's <code>WallpaperManager</code> provides APIs to extract the dominant colors of the current wallpaper and — on supported devices — to receive notifications when the wallpaper changes. Combined with Material You's <code>DynamicColors</code>, this enables a keyboard that truly <strong>adapts its entire visual identity to the device wallpaper in real time</strong>.</p>
+
+<h3>Extracting Wallpaper Colors</h3>
+<pre><code><span class="an">@RequiresApi(27)</span>
+<span class="kw">fun</span> <span class="fn">extractWallpaperPalette</span>(context: <span class="ty">Context</span>): <span class="ty">WallpaperColors</span>? {
+    <span class="kw">val</span> wm = <span class="ty">WallpaperManager</span>.<span class="fn">getInstance</span>(context)
+    <span class="kw">return</span> wm.<span class="fn">getWallpaperColors</span>(<span class="ty">WallpaperManager.FLAG_SYSTEM</span>)
+}
+
+<span class="an">@RequiresApi(27)</span>
+<span class="kw">fun</span> <span class="fn">KeyboardTheme.Companion.fromWallpaper</span>(context: <span class="ty">Context</span>): <span class="ty">KeyboardTheme</span> {
+    <span class="kw">val</span> colors = <span class="fn">extractWallpaperPalette</span>(context)
+    <span class="kw">val</span> primary     = colors?.primaryColor?.toArgb() ?: <span class="ty">Color.GRAY</span>
+    <span class="kw">val</span> secondary   = colors?.secondaryColor?.toArgb() ?: <span class="ty">Color.LTGRAY</span>
+    <span class="kw">val</span> isDark      = colors?.colorHints?.and(
+                       <span class="ty">WallpaperColors.HINT_SUPPORTS_DARK_THEME</span>) != <span class="num">0</span>
+
+    <span class="kw">return</span> <span class="ty">KeyboardTheme</span>(
+        id = <span class="str">"wallpaper_sync"</span>,
+        name = <span class="str">"Wallpaper Sync"</span>,
+        keyBackground   = <span class="fn">colorToHex</span>(<span class="fn">blendColors</span>(primary, <span class="kw">if</span> (isDark) 0xFF1A1A1A.toInt() <span class="kw">else</span> 0xFFF5F5F5.toInt(), <span class="num">0.85f</span>)),
+        keyLabel        = <span class="fn">colorToHex</span>(<span class="kw">if</span> (isDark) <span class="ty">Color.WHITE</span> <span class="kw">else</span> <span class="ty">Color.BLACK</span>),
+        keyBorder       = <span class="fn">colorToHex</span>(secondary),
+        keyLabelPressed = <span class="fn">colorToHex</span>(primary),
+        actionBackground = <span class="fn">colorToHex</span>(primary),
+        actionLabel     = <span class="fn">colorToHex</span>(<span class="kw">if</span> (isDark) <span class="ty">Color.BLACK</span> <span class="kw">else</span> <span class="ty">Color.WHITE</span>),
+        boardBackground = <span class="fn">colorToHex</span>(secondary)
+    )
+}
+
+<span class="cm">// Listen for wallpaper changes and update theme live</span>
+<span class="kw">val</span> wallpaperChangeReceiver = <span class="kw">object</span> : <span class="ty">BroadcastReceiver</span>() {
+    <span class="kw">override</span> <span class="kw">fun</span> <span class="fn">onReceive</span>(ctx: <span class="ty">Context</span>, intent: <span class="ty">Intent</span>) {
+        <span class="kw">if</span> (intent.action == <span class="ty">Intent.ACTION_WALLPAPER_CHANGED</span>) {
+            <span class="fn">reloadThemeFromWallpaper</span>()
+        }
+    }
+}</code></pre>
+</section>
+
+<!-- ─── SECTION 28 ─────────────────────────────── -->
+<section id="s28">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 28</span>
+  <h2>Performance Budgets for 3D <span class="badge b-expert">Expert</span></h2>
+  <p class="ch-desc">Frame timing budgets, thermal throttling management, and profiling tools for GPU-accelerated keyboards</p>
+</div>
+
+<p class="lead">A keyboard rendering 3D effects while the user types in a heavy app (camera, AR, game) is competing for the GPU with that app. If your keyboard causes the foreground app to drop frames, users notice immediately — even if they never consciously connect it to the keyboard. This section defines a strict performance contract for all 3D keyboard work.</p>
+
+<h3>Performance Budget Framework</h3>
+<div class="spec-grid">
+  <div class="spec-card">
+    <span class="spec-val">&lt;2ms</span>
+    <span class="spec-label">Max GPU time per keyboard frame</span>
+    <span class="spec-note">Measured on Snapdragon 480</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">&lt;1ms</span>
+    <span class="spec-label">CPU thread time per frame</span>
+    <span class="spec-note">All uniform uploads, state changes</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">&lt;32MB</span>
+    <span class="spec-label">Total GPU memory for keyboard</span>
+    <span class="spec-note">Textures + buffers + shaders</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">60 FPS</span>
+    <span class="spec-label">Target for animated effects</span>
+    <span class="spec-note">Drop to 30 FPS when thermals throttle</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">≤256</span>
+    <span class="spec-label">Max active particles</span>
+    <span class="spec-note">GPU compute simulation</span>
+  </div>
+  <div class="spec-card">
+    <span class="spec-val">3</span>
+    <span class="spec-label">Max draw calls per frame</span>
+    <span class="spec-note">Use instancing to stay within</span>
+  </div>
+</div>
+
+<h3>Thermal Throttle Detection</h3>
+<pre><code><span class="cm">// Detect thermal throttling and reduce visual quality</span>
+<span class="kw">class</span> <span class="ty">ThermalAwareRenderer</span>(context: <span class="ty">Context</span>) {
+
+    <span class="kw">private</span> <span class="kw">val</span> powerManager = context.<span class="fn">getSystemService</span>(<span class="ty">PowerManager::class.java</span>)
+    <span class="kw">private</span> <span class="kw">var</span> qualityLevel = <span class="ty">QualityLevel.HIGH</span>
+
+    <span class="kw">init</span> {
+        <span class="kw">if</span> (<span class="ty">Build.VERSION.SDK_INT</span> >= <span class="num">29</span>) {
+            powerManager.<span class="fn">addThermalStatusListener</span> { status ->
+                qualityLevel = <span class="kw">when</span> (status) {
+                    <span class="ty">PowerManager.THERMAL_STATUS_NONE</span>,
+                    <span class="ty">PowerManager.THERMAL_STATUS_LIGHT</span> -> <span class="ty">QualityLevel.HIGH</span>
+                    <span class="ty">PowerManager.THERMAL_STATUS_MODERATE</span> -> <span class="ty">QualityLevel.MEDIUM</span>
+                    <span class="kw">else</span> -> <span class="ty">QualityLevel.LOW</span>  <span class="cm">// SEVERE/CRITICAL — drop to Canvas</span>
+                }
+                <span class="fn">onQualityChanged</span>(qualityLevel)
+            }
+        }
+    }
+
+    <span class="kw">fun</span> <span class="fn">onQualityChanged</span>(level: <span class="ty">QualityLevel</span>) {
+        <span class="kw">when</span> (level) {
+            <span class="ty">QualityLevel.HIGH</span>   -> { particlesEnabled = <span class="kw">true</span>;  renderMode = CONTINUOUS }
+            <span class="ty">QualityLevel.MEDIUM</span> -> { particlesEnabled = <span class="kw">false</span>; renderMode = WHEN_DIRTY }
+            <span class="ty">QualityLevel.LOW</span>    -> { switchToCanvasRenderer() }
+        }
+    }
+}
+
+<span class="kw">enum class</span> <span class="ty">QualityLevel</span> { HIGH, MEDIUM, LOW }</code></pre>
+
+<h3>Profiling Checklist</h3>
+<ul class="checklist">
+  <li class="cat">Profiling Tools</li>
+  <li>Profile with <strong>Android GPU Inspector</strong> — captures GPU frame traces on Qualcomm, Mali, and PowerVR</li>
+  <li>Use <strong>Perfetto</strong> for CPU + GPU timeline correlation — identify when keyboard GL work overlaps with app frames</li>
+  <li>Run <strong>RenderDoc</strong> for frame capture — inspect draw calls, shader invocations, texture bindings</li>
+  <li>Test with <strong>CPU Profiler in Android Studio</strong> — measure GL thread CPU time alongside the main thread</li>
+  <li class="cat">Test Devices (Low-End)</li>
+  <li>Snapdragon 480 (e.g., Nokia G60) — represents budget 5G market</li>
+  <li>MediaTek Helio G85 (e.g., Samsung Galaxy A32) — very common in European mid-range</li>
+  <li>Unisoc Tiger T618 (e.g., Lenovo Tab M10) — entry-level tablet GPU</li>
+  <li class="cat">Budget Checks</li>
+  <li>GPU frame time ≤ 2ms on Snapdragon 480 at all temperatures</li>
+  <li>No texture uploads per frame (pre-upload in onSurfaceCreated)</li>
+  <li>Instanced drawing: all keys in ≤3 draw calls</li>
+  <li>Particle system: compute shader, ≤256 particles, ≤1ms total</li>
+</ul>
+</section>
+
+<!-- ─── SECTION 29 ─────────────────────────────── -->
+<section id="s29">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 29</span>
+  <h2>QA Checklist — 3D &amp; Visual <span class="badge b-intermediate">Intermediate</span></h2>
+  <p class="ch-desc">Test matrix for visual correctness, performance compliance, accessibility parity, and theme system correctness</p>
+</div>
+
+<ul class="checklist">
+  <li class="cat">3D Rendering Correctness</li>
+  <li>3D keys are visually correct in portrait and landscape on all test devices</li>
+  <li>EGL context is preserved across keyboard hide/show cycles (no re-initialization flicker)</li>
+  <li>Rotation / configuration change does not leave a blank GL surface</li>
+  <li>Key press animation (sinkage) fires and completes within 60ms</li>
+  <li>No z-fighting artifacts on bevel edges on any GPU vendor</li>
+  <li>3D rendering correctly composited over host app content (transparent background)</li>
+
+  <li class="cat">Shader Quality</li>
+  <li>All GLSL shaders compile without errors on Qualcomm Adreno, ARM Mali, and PowerVR</li>
+  <li>mediump precision does not produce visible banding artifacts on key labels</li>
+  <li>Specular highlight position is stable during key press (no highlight flickering)</li>
+
+  <li class="cat">Particle System</li>
+  <li>Particles are correctly culled when the keyboard is hidden</li>
+  <li>No particle leak after 1,000 keystrokes (particle pool correctly reused)</li>
+  <li>Particle effects disabled when device is in Low Power Mode</li>
+
+  <li class="cat">Theme Engine</li>
+  <li>All bundled themes parse from JSON without schema errors</li>
+  <li>Theme hot-swap (changing theme while keyboard is visible) applies without crash or flicker</li>
+  <li>Material You theme correctly updates when system wallpaper changes</li>
+  <li>User-custom background is correctly blurred and cropped to keyboard dimensions</li>
+  <li>Font packs load correctly; invalid font path falls back to system font gracefully</li>
+
+  <li class="cat">Accessibility Parity</li>
+  <li>TalkBack correctly announces key labels when 3D mode is active</li>
+  <li>Key contrast meets WCAG 2.2 AA in all bundled themes (≥4.5:1 label : background)</li>
+  <li>No visual effects (particles, glow) prevent touch target identification</li>
+
+  <li class="cat">Performance</li>
+  <li>GPU frame time ≤ 2ms on Snapdragon 480 at steady state</li>
+  <li>GPU frame time ≤ 2ms after 10 minutes continuous typing (thermal sustained)</li>
+  <li>Quality degrades gracefully under thermal throttling (particles → Canvas fallback)</li>
+</ul>
+</section>
+
+<!-- ─── SECTION 30 ─────────────────────────────── -->
+<section id="s30">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 30</span>
+  <h2>Open Source Project Index <span class="badge b-beginner">Beginner</span></h2>
+  <p class="ch-desc">Complete annotated index of all referenced open source projects, rendering libraries, and tools</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Project</th><th>Category</th><th>License</th><th>Primary Use in this Guide</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/florisboard/florisboard" class="ext">FlorisBoard</a></td><td>Keyboard IME</td><td>Apache 2.0</td><td>§03, §19 — Snygg theme engine architecture reference</td></tr>
+<tr><td><a href="https://github.com/AnySoftKeyboard/AnySoftKeyboard" class="ext">AnySoftKeyboard</a></td><td>Keyboard IME</td><td>Apache 2.0</td><td>§03 — 3D theme pack, external APK theme loading</td></tr>
+<tr><td><a href="https://github.com/openboard-team/openboard" class="ext">OpenBoard</a></td><td>Keyboard IME</td><td>GPL 3.0</td><td>§03 — LatinIME rendering pipeline, layout system</td></tr>
+<tr><td><a href="https://github.com/LiteKite/Android-IME" class="ext">kBoard (LiteKite)</a></td><td>Keyboard IME</td><td>Apache 2.0</td><td>§03 — MVVM IME architecture pattern</td></tr>
+<tr><td><a href="https://github.com/DonBrody/Android-CustomKeyboard" class="ext">Android-CustomKeyboard</a></td><td>Custom KB</td><td>MIT</td><td>§17 — Simplest custom keyboard starting point</td></tr>
+<tr><td><a href="https://github.com/shutterscripter/Custom_Android_Keyboard" class="ext">Custom_Android_Keyboard</a></td><td>Custom KB</td><td>MIT</td><td>§17 — Layout XML customization patterns</td></tr>
+<tr><td><a href="https://github.com/google/filament" class="ext">Filament (Google)</a></td><td>3D Renderer</td><td>Apache 2.0</td><td>§09–§12 — Full PBR renderer, materials, IBL</td></tr>
+<tr><td><a href="https://github.com/SceneView/sceneview-android" class="ext">SceneView</a></td><td>3D/AR Lib</td><td>Apache 2.0</td><td>§11, §25 — Filament + Compose bridge, AR keyboard</td></tr>
+<tr><td><a href="https://developer.android.com/guide/topics/graphics/opengl" class="ext">OpenGL ES (Android)</a></td><td>GPU API</td><td>System</td><td>§04–§08, §16 — Core 3D rendering, shaders, particles</td></tr>
+<tr><td><a href="https://docs.godotengine.org/en/stable/tutorials/platform/android/android_library.html" class="ext">Godot Android Library</a></td><td>Game Engine</td><td>MIT</td><td>§24 — Godot scene embedded in IME</td></tr>
+<tr><td><a href="https://www.tensorflow.org/lite" class="ext">TensorFlow Lite</a></td><td>On-device ML</td><td>Apache 2.0</td><td>§26 — Theme recommendation model</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ─── SECTION 31 ─────────────────────────────── -->
+<section id="s31">
+<div class="section-break"></div>
+<div class="chapter">
+  <span class="chapter-num">Section 31</span>
+  <h2>References &amp; Further Reading <span class="badge b-beginner">Beginner</span></h2>
+  <p class="ch-desc">All official documentation, research sources, and tutorials consulted in this volume</p>
+</div>
+
+<h3>Android Official Documentation</h3>
+<ul class="ref-list">
+  <li><a href="https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method" class="ext ref-title">Creating an Input Method — Android Developers</a><span class="ref-url">developer.android.com/develop/ui/views/touch-and-input/creating-input-method</span></li>
+  <li><a href="https://developer.android.com/develop/ui/views/layout/sw-keyboard" class="ext ref-title">Control and Animate the Software Keyboard</a><span class="ref-url">developer.android.com/develop/ui/views/layout/sw-keyboard</span></li>
+  <li><a href="https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style" class="ext ref-title">Handle Keyboard Input Style</a><span class="ref-url">developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style</span></li>
+  <li><a href="https://developer.android.com/guide/topics/graphics/opengl" class="ext ref-title">OpenGL ES — Android Developers Guide</a><span class="ref-url">developer.android.com/guide/topics/graphics/opengl</span></li>
+  <li><a href="https://developer.android.com/reference/android/graphics/RuntimeShader" class="ext ref-title">RuntimeShader API Reference — AGSL</a><span class="ref-url">developer.android.com/reference/android/graphics/RuntimeShader</span></li>
+  <li><a href="https://developer.android.com/reference/android/os/PowerManager#addThermalStatusListener(java.util.concurrent.Executor,android.os.PowerManager.OnThermalStatusChangedListener)" class="ext ref-title">PowerManager.addThermalStatusListener — API 29+</a><span class="ref-url">developer.android.com/reference/android/os/PowerManager</span></li>
+  <li><a href="https://developer.android.com/develop/ui/views/theming/dynamic-colors" class="ext ref-title">Material You Dynamic Colors — Android Developers</a><span class="ref-url">developer.android.com/develop/ui/views/theming/dynamic-colors</span></li>
+</ul>
+
+<h3>3D Rendering Libraries</h3>
+<ul class="ref-list">
+  <li><a href="https://github.com/google/filament" class="ext ref-title">Filament — Google PBR Rendering Engine</a><span class="ref-url">github.com/google/filament</span></li>
+  <li><a href="https://google.github.io/filament/Filament.html" class="ext ref-title">Filament Design Documentation</a><span class="ref-url">google.github.io/filament/Filament.html</span></li>
+  <li><a href="https://github.com/SceneView/sceneview-android" class="ext ref-title">SceneView — Filament + ARCore + Compose</a><span class="ref-url">github.com/SceneView/sceneview-android</span></li>
+  <li><a href="https://developers.google.com/sceneform/reference/com/google/ar/sceneform/rendering/FilamentEngineWrapper" class="ext ref-title">Sceneform FilamentEngineWrapper Reference</a><span class="ref-url">developers.google.com/sceneform/reference</span></li>
+</ul>
+
+<h3>Custom Keyboard Tutorials &amp; Examples</h3>
+<ul class="ref-list">
+  <li><a href="https://androiddvlpr.com/android-custom-keyboard-layout/" class="ext ref-title">Android Custom Keyboard Layout — AndroidDvlpr</a><span class="ref-url">androiddvlpr.com/android-custom-keyboard-layout/</span></li>
+  <li><a href="https://codezup.com/custom-android-keyboard-practical-example/" class="ext ref-title">Custom Android Keyboard Practical Example — CodezUp</a><span class="ref-url">codezup.com/custom-android-keyboard-practical-example/</span></li>
+  <li><a href="https://codezup.com/custom-android-keyboard-input-methods-framework/" class="ext ref-title">Custom Keyboard IMF Deep Dive — CodezUp</a><span class="ref-url">codezup.com/custom-android-keyboard-input-methods-framework/</span></li>
+  <li><a href="https://codezup.com/custom-android-keyboard-android-studio-java/" class="ext ref-title">Custom Keyboard in Android Studio (Java) — CodezUp</a><span class="ref-url">codezup.com/custom-android-keyboard-android-studio-java/</span></li>
+  <li><a href="https://medium.com/@maksymkoval1/implementation-of-a-custom-soft-keyboard-in-android-using-compose-b8522d7ed9cd" class="ext ref-title">Custom Keyboard in Compose — Maksym Koval (Medium)</a><span class="ref-url">medium.com/@maksymkoval1 — June 2025</span></li>
+</ul>
+
+<h3>Open Source IME References</h3>
+<ul class="ref-list">
+  <li><a href="https://github.com/florisboard/florisboard" class="ext ref-title">FlorisBoard</a><span class="ref-url">github.com/florisboard/florisboard</span></li>
+  <li><a href="https://github.com/AnySoftKeyboard/AnySoftKeyboard" class="ext ref-title">AnySoftKeyboard</a><span class="ref-url">github.com/AnySoftKeyboard/AnySoftKeyboard</span></li>
+  <li><a href="https://github.com/openboard-team/openboard" class="ext ref-title">OpenBoard</a><span class="ref-url">github.com/openboard-team/openboard</span></li>
+  <li><a href="https://github.com/LiteKite/Android-IME" class="ext ref-title">kBoard — LiteKite/Android-IME</a><span class="ref-url">github.com/LiteKite/Android-IME</span></li>
+  <li><a href="https://github.com/DonBrody/Android-CustomKeyboard" class="ext ref-title">Android-CustomKeyboard — DonBrody</a><span class="ref-url">github.com/DonBrody/Android-CustomKeyboard</span></li>
+  <li><a href="https://github.com/shutterscripter/Custom_Android_Keyboard" class="ext ref-title">Custom_Android_Keyboard — shutterscripter</a><span class="ref-url">github.com/shutterscripter/Custom_Android_Keyboard</span></li>
+  <li><a href="https://f-droid.org/en/packages/com.anysoftkeyboard.theme.three_d/" class="ext ref-title">AnySoftKeyboard 3D Theme — F-Droid</a><span class="ref-url">f-droid.org/en/packages/com.anysoftkeyboard.theme.three_d/</span></li>
+</ul>
+
+<h3>Game Engine Integration</h3>
+<ul class="ref-list">
+  <li><a href="https://docs.godotengine.org/en/stable/tutorials/platform/android/android_library.html" class="ext ref-title">Godot Android Library — Official Docs</a><span class="ref-url">docs.godotengine.org/en/stable/tutorials/platform/android/android_library.html</span></li>
+  <li><a href="https://docs.unity3d.com/Manual/UnityasaLibrary-Android.html" class="ext ref-title">Unity as an Android Library — Unity Docs</a><span class="ref-url">docs.unity3d.com/Manual/UnityasaLibrary-Android.html</span></li>
+</ul>
+
+<h3>OpenGL ES &amp; GLSL</h3>
+<ul class="ref-list">
+  <li><a href="https://registry.khronos.org/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.pdf" class="ext ref-title">GLSL ES 3.20 Specification — Khronos</a><span class="ref-url">registry.khronos.org/OpenGL/specs/es/3.2/</span></li>
+  <li><a href="https://code.tutsplus.com/how-to-use-opengl-es-in-android-apps--cms-28464t" class="ext ref-title">How to Use OpenGL ES in Android Apps — Envato Tuts+</a><span class="ref-url">code.tutsplus.com/how-to-use-opengl-es-in-android-apps</span></li>
+</ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <div>
+    <div class="footer-brand">Android Keyboard 3D &amp; Personalization Guide</div>
+    <p style="font-size:13px;color:var(--ink-500);margin-top:4px;">2026 Extension Volume — 31 Sections · OpenGL ES · Filament PBR · AGSL · Particle Systems · Full Kotlin/GLSL Code</p>
+  </div>
+  <div class="footer-meta">
+    Made in Jurgistan — Extension &amp; Companion Volume<br>
+    Research: github.com/google/filament · developer.android.com<br>
+    github.com/florisboard · github.com/AnySoftKeyboard<br>
+    github.com/SceneView · docs.godotengine.org<br>
+    <a href="#cover" style="color:var(--amber);">↑ Return to top</a>
+  </div>
+</footer>
+
+</main>
+</div>
+</body>
+</html>
